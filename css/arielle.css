@@ -789,3 +789,12 @@ p.modal-title-campos-anuncio{
   width:100px;
   height: 100px;
 }
+
+.titleRegulamento{
+  font-family: Helvetica;
+  font-size: 23px;
+}
+.textRegulamento{
+  font-family: Gadugi;
+  font-size: 18px;
+}

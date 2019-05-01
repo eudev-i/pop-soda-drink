@@ -18,7 +18,7 @@
 
     <div class="principal">
       <div class="titulo_pagina font-titulo">
-          <h1>Promoções</h1>
+          <h1 class="title-pag-promocoes">Promoções</h1>
       </div>
       <div class="section-three-conteudo centralizar_elemento">
         <div class="section-three-conteudo-imagem centralizarY">
@@ -30,14 +30,14 @@
             Quer viajar para a terra do reggae e conhecer seus rios, montanhas, 
             cascatas e praias paradisíacas de areia branca com mais 3 amigos?
           </div>
-          <br><br><br>Regulamento
-          <br><br>
+          <br><br><br><div class="titleRegulamento">Regulamento</div>
+          <br>
           <ol>
-            <li>1 - Compre refrigerantes de lata da 7up</li>
-            <li>2 - Junte as latas</li>
-            <li>3 - Vá até o estabelecimento no qual comprou e troque suas latas por cupons de sorteio</li>
-            <li>4 - Agora é só esperar para o sorteio no dia 20/06/2019</li>
-            <li>5 - O resultado será divulgado aqui no nosso site!</li>
+            <li class="textRegulamento">1 - Compre refrigerantes de lata da 7up</li>
+            <li class="textRegulamento">2 - Junte as latas</li>
+            <li class="textRegulamento">3 - Vá até o estabelecimento no qual comprou e troque suas latas por cupons de sorteio</li>
+            <li class="textRegulamento">4 - Agora é só esperar para o sorteio no dia 20/06/2019</li>
+            <li class="textRegulamento">5 - O resultado será divulgado aqui no nosso site!</li>
           </ol>
         </div>
       </div>
