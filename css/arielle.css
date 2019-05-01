@@ -381,7 +381,8 @@ a.modal-fechar{
 
 .caixa-produtos-brindes{
   width: 288px;
-  height: 390px;
+  min-height: 400px;
+  height: auto;
   background-color: white;
   float: left;
   margin-top: 45px;
@@ -406,12 +407,10 @@ a.modal-fechar{
 
 .descricao-brinde p{
   margin-top: 15px;
-  font-size: 22px;
-  color: #15233a;
-  font-weight: bold;
+  font-size: 20px;
+  color: #000;
   margin-bottom: 20px;
-  font-size: 17px;
-  font-family: sans-serif;
+  font-family: Helvetica;
   margin: 14px;
   text-align: center;
 }
@@ -419,13 +418,14 @@ a.modal-fechar{
 .descricao-brinde span{
   line-height: 14px;
   font-size: 20px;
-  font-family: sans-serif;
+  font-family: Gadugi;
+  font-weight: bold;
   margin: 14px;
   float: left;
 }
 
 .descricao-brinde input[type="submit"]{
-  background-color: green;
+  background-color: #5fa83a;
   color: white;
   padding: 14px 20px;
   border: 1px solid rgba(27,31,35,.2);
@@ -433,8 +433,14 @@ a.modal-fechar{
   cursor: pointer;
   font-weight: bold;
   margin-top: 5px;
+  font-family: Gadugi;
+  font-size:17px;
   margin-left: 40px;
-
+}
+.descricao-brinde input[type="submit"]:hover{
+  background-color: #226b17;
+  transition: 0.5s;
+}
 
   /* background-color: #EA720F;
  border-color: #EA720F;
@@ -445,7 +451,7 @@ a.modal-fechar{
  text-transform: uppercase;
  ;
   */
-}
+
 
 
 .caixa-foto-produto{
@@ -498,7 +504,7 @@ a.modal-fechar{
 .carrinho-compras{
   width: 50px;
   height: 50px;
-  background-image: url("../img/carrinho.jpg");
+  background-image: url("../img/carrinho_compras.png");
   background-size: 50px 50px;
   margin-left: auto;
 
