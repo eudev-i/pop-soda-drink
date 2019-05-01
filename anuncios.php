@@ -17,7 +17,7 @@
         <!-- Conteúdo chamativo -->
         <div id="caixa_conteudo_chamativo" style="background-image: url(img/estabelecimento1.jpg);">
             <div id="conteudo_chamativo">
-                <h1 style="color:white;"><strong>ANÚNCIOS</strong></h1>
+                <h1 style="color:white; font-family:Helvetica "><strong>Anúncios</strong></h1>
                 <p class="texto_conteudo_chamativo" style="color:white; font-size:23px; text-align:center; margin-top:20px; font-family:Gadugi">
                     Quer adquirir os produtos da POP'Soda Drink? Confira os estabelecimentos que
                     participam da Rede POP'S.
