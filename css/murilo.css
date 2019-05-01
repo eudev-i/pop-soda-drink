@@ -19,7 +19,7 @@
 .titulo_sections{
     text-align: center;
     font-size: 3em;
-    font-family: coolvetica;
+    font-family: Helvetica;
 }
 
 /* ******************* SECTION 1 - ÁREA DE ENQUETE ***************** */
@@ -61,9 +61,8 @@
 }
 
 .caixa_enquete{
-  width: 80%;
+  width: 450px;
   padding: 10px 5px 10px 5px;
-  font-family: coolvetica;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #fff;
@@ -73,27 +72,35 @@
 .titulo_enquete{
   font-size: 25px;
   margin-bottom: 50px;
+  font-family: Helvetica;
 }
 
 .itens_enquete{
   font-size: 18px;
-  width: 70%;
+  min-width: 120px;
+  width: auto;
   text-align: left;
   margin-bottom: 30px;
+  font-family: Gadugi;
 }
 
 .btn_votar{
   width: 100px;
-  background-color: green;
+  background-color: #5fa83a;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: 1px solid rgba(27,31,35,.2);
   border-radius: 4px;
+  font-size: 18px;
+  font-family: Gadugi;
   cursor: pointer;
   font-weight: bold;
 }
-
+.btn_votar:hover{
+  background-color: #226b17;
+  transition: 0.5s;
+}
 /* *************************** SECTION 3 ************************ */
 .section-three{
   width: 100%;
@@ -139,12 +146,15 @@
 
 .section-three-conteudo-titulo{
   font-size: 35px;
+  font-family: Helvetica;
 }
 
 .section-three-conteudo-texto{
   margin-top: 30px;
   font-size: 20px;
   text-align: justify;
+  font-family: Gadugi;
+  font-size: 23px;
 }
 
 .section-three-conteudo-infomarcao button{
@@ -157,6 +167,8 @@
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 18px;
+  font-family: Gadugi;
   border-radius: 20px;
 }
 
@@ -244,18 +256,21 @@
 
 .caixa_noticia-titulo{
   font-size: 35px;
+  font-family: Helvetica;
 }
 
 .caixa_noticia-texto{
   margin-top: 30px;
   font-size: 20px;
   text-align: justify;
+  font-family: Gadugi;
 }
 
 .caixa_noticia-data{
   margin-top: 10px;
   font-size: 22px;
   text-align: right;
+  font-family: Gadugi;
 }
 
 .caixa_noticia-botao{
@@ -272,6 +287,8 @@
   border: 1px solid rgba(27,31,35,.2);
   border-radius: 4px;
   cursor: pointer;
+  font-size: 18px;
+  font-family: Gadugi;
   font-weight: bold;
   border-radius: 5px;
 }
@@ -328,6 +345,8 @@
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 18px;
+  font-family: Gadugi;
   border-radius: 20px;
 }
 
@@ -385,12 +404,14 @@
 
 .caixa_sustentavel-titulo{
   font-size: 35px;
+  font-family: Helvetica;
 }
 
 .caixa_sustentavel-texto{
   margin-top: 30px;
   font-size: 20px;
   text-align: justify;
+  font-family: Gadugi;
 }
 
 .caixa_sustentavel-imagem{
@@ -473,20 +494,20 @@
   margin-top: 20px;
   margin-bottom: 10px;
   text-align: center;
-  font-family: coolvetica;
 }
 
 .section-six-text-products h2{
   margin-top: 15px;
   font-size: 22px;
   color: #15233a;
-  font-weight: bold;
+  font-family: Gadugi;
+  color: #000;
 }
 
 .section-six-text-products p{
   margin-top: 15px;
   color: #010101;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -497,15 +518,22 @@
 }
 
 .section-six-button input[type="button"]{
-  width: 150px;
+  width: 190px;
   height: 0px;
-  background-color: green;
+  background-color: #5fa83a;
   color: white;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+  font-size: 18px;
+  font-family: Gadugi;
   visibility: hidden;
 }
+.section-six-button input[type="button"]:hover{
+  background-color: #226b17;
+  transition: 0.5s;
+}
+
 
 .section-six-products:hover input[type="button"]{
   padding: 14px 20px;
@@ -577,6 +605,7 @@
   height: 45px;
   font-size: 25px;
   float: left;
+  font-family: Helvetica;
 }
 
 
@@ -586,12 +615,14 @@
   padding-left: 60px;
   text-align: justify;
   padding-bottom: 30px;
+  font-family: Gadugi;
 }
 
 
 .section-eight-resposta{
   width: 100%;
   height: 80px;
+  font-family: Helvetica;
 }
 
 .section-eight-resposta .caixa_input{
@@ -632,6 +663,8 @@
   cursor: pointer;
   font-weight: bold;
   border-radius: 20px;
+  font-family: 
+  Gadugi;
 }
 
 .section-eight-resposta .caixa_botao_email button:hover{

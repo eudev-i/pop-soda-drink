@@ -24,7 +24,7 @@
       <div id="index_principal" style="display:none;">
       <div id="inicio" class="centralizarY">
         <div id="conteudo_inicio" class="centralizarX">
-          <div id="titulo_inicio" class="fadeInLeft">
+          <div id="titulo_inicio" class="fadeInLeft"  style="font-family:Helvetica;">
             Já conhece os produtos da POP'S?
           </div>
           <div id="texto_inicio" class="fadeInRight">
@@ -100,7 +100,7 @@
       </section>
       <!-- SECTION 2 -->
       <section class="section-two">
-        <h1 class="titulo_sections">Participe das enquetes da Pop'S</h1>
+        <h1 class="titulo_sections">Participe das enquetes da POP'S</h1>
         <div id="enquetes" class="div-geral-section-imagens centralizar_elemento fadeInTop">
           <div class="imagens-section-two centralizarY">
             <div  class="caixa_enquete centralizar_elemento">
@@ -167,7 +167,7 @@
 
       <!-- SECTION 4 -->
       <section class="section-four">
-        <h1 class="titulo_sections">Fique de olho na Pop'S</h1>
+        <h1 class="titulo_sections">Fique de olho na POP'S</h1>
         <div  id="news" class="section-four-conteudo centralizar_elemento fadeInLeft">
           <div class="caixa_noticia ">
             <div class="caixa_noticia-imagem centralizarY">
@@ -198,7 +198,7 @@
           </div>
           <div class="caixa_email centralizar_elemento">
             <div class="caixa_input">
-              <label for="txt_email">Deseja receber emails da Pop'S?</label>
+              <label for="txt_email" style="font-family:Helvetica;">Deseja receber emails da POP'S?</label>
               <input type="text" id="txt_email" name="txt_email">
             </div>
             <div class="caixa_botao_email">
@@ -210,7 +210,7 @@
 
       <!-- SECTION 5 -->
       <section class="section-five">
-        <h1 class="titulo_sections">Pop'S Ecológico</h1>
+        <h1 class="titulo_sections">POP'S Ecológico</h1>
         <div id="sustentavel" class="section-five-conteudo centralizar_elemento fadeInTop">
           <div class="caixa_sustentavel-imagem centralizarY">
             <img class="centralizar_elemento" src="img/ecologia.jpg" alt="Ecológico">
@@ -234,7 +234,7 @@
         </div>
       </section>
       <section class="section-eight">
-        <h1 class="titulo_sections">Comentários Pop'S</h1>
+        <h1 class="titulo_sections">Comentários POP'S</h1>
         <div id="comments" class="section-eight-conteudo centralizar_elemento">
           <div class="caixa_comentario centralizar_elemento">
             <div class="section-eight-usuario">

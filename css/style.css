@@ -1,16 +1,5 @@
 /*************HEADER**************/
 
-@font-face {
-  font-family: botram;
-  src: url(../font/Botram.otf);
-}
-
-@font-face {
-  font-family: coolvetica;
-  src: url(../font/coolvetica-rg.ttf);
-}
-
-
 
 .centralizarX{
   margin-left: auto;
@@ -61,7 +50,7 @@ nav{
   width: 100%;
   height: auto;
   background-color: #e57510;
-  font-family: coolvetica;
+  font-family: Gadugi;
   font-weight: bold;
   
 }
@@ -101,7 +90,7 @@ nav{
 #texto_inicio{
   width: 600px;
   margin-top: 50px;
-  font-size: 20px;
+  font-size: 23px;
   text-align: justify;
   -webkit-animation-duration: 2.5s;
   animation-duration: 2.5s;
@@ -113,7 +102,7 @@ nav{
   overflow: hidden;
   width: 1085px;
   height: 60px;
-  font-family: coolvetica;
+  font-family: Gadugi;
 }
 
 .navbar a {
@@ -197,6 +186,7 @@ footer{
 .conteudo_footer{
   width: 1200px;
   height: auto;
+  font-family: Gadugi;
 }
 
 .coluna_links{
@@ -209,7 +199,7 @@ footer{
 
 .lista_footer{
   font-size: 20px;
-  font-family: coolvetica;
+  font-family: Gadugi;
 }
 
 .lista_item{
@@ -257,7 +247,7 @@ footer{
   margin-top: 20px;
   width: 100%;
   font-size: 20px;
-  font-family: coolvetica;
+  font-family: Gadugi;
   text-align: center;
   color: #fff;
 }
