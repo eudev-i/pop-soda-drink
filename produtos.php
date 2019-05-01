@@ -19,19 +19,16 @@
         <div class="menu_filtos-produtos">
             <form action="index.html" method="post">
               <h3 class="title-menu-produtos">
-                <img class="direita" src="img/triangulo.png" alt="">
                  Marca:
               </h3>
               <select class="input-select" name="selectfiltro"> </select>
 
               <h3 class="title-menu-produtos">
-                <img class="direita" src="img/triangulo.png" alt="">
                  Preço:
               </h3>
               <select class="input-select" name="selectfiltro"> </select>
 
               <h3 class="title-menu-produtos">
-                <img class="direita" src="img/triangulo.png" alt="">
                  Quantidade:
               </h3>
               <select class="input-select" name="selectfiltro"> </select>
