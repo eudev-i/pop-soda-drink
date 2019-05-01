@@ -18,7 +18,7 @@
         <div id="caixa_conteudo_chamativo" style="background-image: url(img/estabelecimento1.jpg);">
             <div id="conteudo_chamativo">
                 <h1 style="color:white;"><strong>ANÚNCIOS</strong></h1>
-                <p class="texto_conteudo_chamativo" style="color:white; text-align:center; margin-top:20px; font-family:Gadugi">
+                <p class="texto_conteudo_chamativo" style="color:white; font-size:23px; text-align:center; margin-top:20px; font-family:Gadugi">
                     Quer adquirir os produtos da POP'Soda Drink? Confira os estabelecimentos que
                     participam da Rede POP'S.
                 </p>
@@ -29,11 +29,11 @@
         <section class="caixa_geral_anuncios">
 
             <div class="caixa_anuncios sombra">
-                <h3>Atacadão</h3>
+                <h3 style="font-family:Helvetica">Atacadão</h3>
                 <div class="img_anuncios">
                     <img src="img/atacadao.jpg" width="280" height="200" title="Ola" alt="Imagem não encontrada">
                 </div>
-                <p class="caixa_anuncios_texto">
+                <p class="caixa_anuncios_texto" style="font-size:20px">
                     O Atacadão é um supermecado que revende varejo e atacado.
                 </p>
 
@@ -61,11 +61,11 @@
             </div>
 
             <div class="caixa_anuncios sombra">
-                <h3>Atacadão</h3>
+                <h3 style="font-family:Helvetica">Atacadão</h3>
                 <div class="img_anuncios">
                     <img src="img/atacadao.jpg" width="280" height="200" title="Ola" alt="Imagem não encontrada">
                 </div>
-                <p class="caixa_anuncios_texto">
+                <p class="caixa_anuncios_texto" style="font-size:20px">
                 O Atacadão é um supermecado que revende varejo e atacado.
                 </p>
 
@@ -93,11 +93,11 @@
             </div>
 
             <div class="caixa_anuncios sombra">
-                <h3>Atacadão</h3>
+                <h3 style="font-family:Helvetica">Atacadão</h3>
                 <div class="img_anuncios">
                     <img src="img/atacadao.jpg" width="280" height="200" title="Ola" alt="Imagem não encontrada">
                 </div>
-                <p class="caixa_anuncios_texto">
+                <p class="caixa_anuncios_texto" style="font-size:20px">
                 O Atacadão é um supermecado que revende varejo e atacado.
                 </p>
 
@@ -125,11 +125,11 @@
             </div>
 
             <div class="caixa_anuncios sombra">
-                <h3>Atacadão</h3>
+                <h3 style="font-family:Helvetica">Atacadão</h3>
                 <div class="img_anuncios">
                     <img src="img/atacadao.jpg" width="280" height="200" title="Ola" alt="Imagem não encontrada">
                 </div>
-                <p class="caixa_anuncios_texto">
+                <p class="caixa_anuncios_texto" style="font-size:20px">
                     O Atacadão é um supermecado que revende varejo e atacado.
                 </p>
 
@@ -157,11 +157,11 @@
             </div>
 
             <div class="caixa_anuncios sombra">
-                <h3>Atacadão</h3>
+                <h3 style="font-family:Helvetica">Atacadão</h3>
                 <div class="img_anuncios">
                     <img src="img/atacadao.jpg" width="280" height="200" title="Ola" alt="Imagem não encontrada">
                 </div>
-                <p class="caixa_anuncios_texto">
+                <p class="caixa_anuncios_texto" style="font-size:20px">
                 O Atacadão é um supermecado que revende varejo e atacado.
                 </p>
 
@@ -189,11 +189,11 @@
             </div>
 
             <div class="caixa_anuncios sombra">
-                <h3>Atacadão</h3>
+                <h3 style="font-family:Helvetica">Atacadão</h3>
                 <div class="img_anuncios">
                     <img src="img/atacadao.jpg" width="280" height="200" title="Ola" alt="Imagem não encontrada">
                 </div>
-                <p class="caixa_anuncios_texto">
+                <p class="caixa_anuncios_texto" style="font-size:20px">
                 O Atacadão é um supermecado que revende varejo e atacado.
                 </p>
 
