@@ -3,15 +3,15 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     outline: none;
 }
 .font-texto{
-    font-family: sans-serif;
+    font-family: Helvetica;
 }
 
 .color-blue{
-    color: #15233a;
+    color: #000;
 }
 
 .font-titulo{
-    font-family: Microsoft JhengHei UI;
+    font-family: Helvetica;
 }
 
 .font-negrito{
@@ -41,7 +41,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     min-height: 680px;
     height: auto;
     overflow: hidden;
-    
+
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -50,18 +50,18 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     width: 1000px;
     min-height: 650px;
     height: auto;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .header_painel{
     width: 100%;
-    height: 60px;  
+    height: 60px;
 }
 
 .img_header_esquerda{
     width: 50px;
     height: 50px;
-    
+
     margin-left: 10px;
     margin-top: 5px;
 }
@@ -70,7 +70,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     width: 40px;
     height: 40px;
     margin-top: 10px;
-    margin-right: 15px; 
+    margin-right: 15px;
 }
 
 /* **************** FOTO E NOME **************** */
@@ -79,7 +79,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     height: 245px;
     padding-top: 10px;
     border-radius: 100%;
-    
+
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
@@ -98,8 +98,8 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     min-height: 135px;
     height: auto;
     overflow: hidden;
-    
-    
+
+
     margin-left: 10px;
     margin-top: 10px;
     border-bottom: 2px solid rgb(231, 231, 231);
@@ -111,7 +111,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     height: auto;
     overflow: hidden;
     margin-left: 3px;
-    
+
     font-size: 17px;
     padding: 5px;
     margin-top: 3px;
@@ -155,15 +155,16 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
 .botao_comentario{
     width: 200px;
     height: 40px;
-    background-color: transparent;
+    background-color: #e57510;
     border: none;
     border-radius: 15px;
     font-size: 20px;
-    font-family: sans-serif;
+    font-family: Helvetica;
     cursor: pointer;
-    border: 2px solid #15233a;
+    color: #fff;
 }
 
 .botao_comentario:hover{
-   color: #e57510;
+   color: #fff;
+   background-color: #cc6508;
 }
