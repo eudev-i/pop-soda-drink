@@ -22,11 +22,13 @@ button:focus{
     font-size: 50px;
     text-align: center;
     padding: 40px;
+    font-family: Helvetica;
 }
 
 #caixa_imagem_credenciamento h3{
-    font-size: 20px;
+    font-size: 25px;
     padding: 40px;
+    font-family: Helvetica;
     text-align: center;
 }
 
@@ -42,8 +44,8 @@ button:focus{
 .botao_estabelecimento{
     width: 300px;
     height: 60px;
-    border: 2px solid #e08637;
-    background-color: transparent;
+    border: 2px solid #ff993f;
+    background-color: #ff993f;
     font-size: 20px;
     cursor: pointer;
     border-radius: 20px;
@@ -52,7 +54,7 @@ button:focus{
 
 .botao_estabelecimento:hover{
     background-color: #e08637;
-    border: 2px solid #18071b;
+    border: 2px solid #e08637;
     color: #18071b;
     transition: 0.5s all ease-in-out;
 }
