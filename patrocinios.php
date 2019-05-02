@@ -23,7 +23,7 @@
 
         <!-- Título da página -->
         <div id="conteudo_chamativo">
-            <h1 style="color:black;"><strong>NOSSOS PATROCÍNIOS</strong></h1>
+            <h1>Nossos Patrocínios</h1>
         </div>
 
         <!-- caixa central que ocupa 100% de largura -->
