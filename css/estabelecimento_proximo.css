@@ -32,7 +32,6 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
 .caixa_input_est_proximo{
     width: 850px;
     height: 55px;
-
     margin: auto;
 }
 
@@ -59,15 +58,15 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     border: none;
     margin-left: 15px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 20px;
+    font-family: Helvetica;
     font-size: 19px;
-    color: #1b273b;
-    background-color: transparent;
+    background-color: #15233a;
+    color: #fff;
 }
-
-.caixa_central_est_proximo input[type="button"]:focus{
-    border: 1px solid #e57510;
-    color: #e57510;
+.caixa_central_est_proximo input[type="button"]:hover{
+    background-color: #1a1d22;
+    cursor: pointer;
 }
 
 #caixa_mapa{
