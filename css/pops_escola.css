@@ -97,7 +97,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     padding-left: 120px;
     font-size: 1.2em;
     padding-bottom: 30px;
-    font-family: sans-serif;
+    font-family: Gadugi;
     padding-top: 50px;
     text-align: justify;
     float: left;
@@ -116,11 +116,12 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
 	padding-top: 20px;
     /*background: linear-gradient(to right, rgb(21, 35, 58), rgb(46, 65, 96), rgb(74, 89, 112));*/
     background-color: #d9e6fc;
+    
 }
 
 /* caixa central do cadastro */
 .caixa_central_cadastro{
-    width: 1197px;
+    width: 985px;
     height: 680px;
     overflow: hidden;
     margin-top: 40px;
@@ -131,7 +132,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     margin-top: 10px;
     font-size: 2.5em;
     color: #15233a;
-    font-family: Microsoft JhengHei UI;
+    font-family: Helvetica;
 
 }
 
@@ -142,6 +143,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     margin-bottom: 10px;
     height: 400px;
     float: left;
+    font-family: Helvetica;
     margin-left: 32px;
 }
 
@@ -153,13 +155,13 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
 .formatacao_inputs{
     height: 35px;
     border: none;
-    border-bottom: 2px solid #15233a;
+    border-bottom: 2px solid #416baf;
     margin-bottom: 30px;
     transition: 0.4s;
     font-size: 17px;
-    color: #202a3a;
+    color: #416baf;
     background-color: transparent;
-    font-family: sans-serif;
+    font-family: Gadugi;
 }
 
 .slt_estado{
@@ -186,19 +188,21 @@ input:focus::-webkit-input-placeholder {
     clear: both;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #15233a;
-    color: #000;
-    font-family: sans-serif;
+    border: 1px solid #416baf;
+    color: #fff;
+    font-family: Gadugi;
     font-size: 20px;
-    background-color: transparent;
+    background-color: #416baf;
     transition: 0.4s;
+    border-radius: 20px;
 }
 
 .botao:hover{
     background-color: rgba(230, 228, 228, 0.5);
     transition: 0.4s;
     cursor: pointer;
-    color: #15233a;
+    color: #fff;
+    background-color: #15233a;
 }
 
 .aviso{
@@ -207,7 +211,7 @@ input:focus::-webkit-input-placeholder {
     height: auto;
     overflow: hidden;
     margin-bottom: 5px;
-    padding-bottom: 5px;
+    padding: 5px;
     clear: both;
     /*background-color: rgb(247, 255, 129);*/
     border: 2px solid #15233a;
@@ -216,15 +220,14 @@ input:focus::-webkit-input-placeholder {
 
 .aviso strong{
     font-size: 35px;
-    font-family: Microsoft JhengHei UI;
+    font-family: Helvetica;
     color: #15233a;
-    font-weight: bold; 
     padding-left: 3px;
 }
 
 .aviso p{
-    font-size: 17px;
-    font-family: sans-serif;
+    font-size: 19px;
+    font-family: Gadugi;
     padding: 5px;
     color: #1a1d22;
     text-align: justify;
