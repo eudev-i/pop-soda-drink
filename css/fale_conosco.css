@@ -4,7 +4,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
 }
 /**************  PADRÕES **************/
 .font-texto{
-    font-family: sans-serif;
+    font-family: Gadugi;
 }
 
 
@@ -57,10 +57,10 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
 
 /* texto do formulário Nome:, Email:, etc */
 .label{
-    font-size: 16px;
-    font-family: Microsoft JhengHei UI;
+    font-size: 20px;
+    font-family: Helvetica;
     font-weight: bold;
-    color: #666;
+    color: #000;
 }
 
 /* input text dos campos */
@@ -92,7 +92,7 @@ input:focus::-webkit-input-placeholder {
     height: 40px;
     border: none;
     font-size: 16px;
-    font-family: sans-serif;
+    font-family: Gadugi;
     color: #666;
     border-bottom: 2px solid #15233a;
 }
@@ -119,15 +119,17 @@ input:focus::-webkit-input-placeholder {
     height: 45px;
     border: none;
     text-transform: uppercase;
-    color: #15233a;
-    font-family: sans-serif;
+    color: #fff;
+    font-family: Gadugi;
     font-size: 18px;
-    background-color: #fff;
-    border: 2px solid #15233a;
+    background-color: #416baf;
+    border-radius: 20px;
     transition: 0.2s;
     cursor: pointer;
+    font-family: Helvetica;
 }
 
-#btnEnviar{
-    color: #20242c;
+#btnEnviar:hover{
+    background-color: #15233a;
+    transition: 1.5;
 }
