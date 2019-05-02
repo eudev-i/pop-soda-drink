@@ -40,16 +40,6 @@
                         <source src="videos/videoplayback.mp4" type="video/mp4">
                     </video>
                 </div>
-
-                <div class="caixa_video div_direita caixa_aumentar">
-                    <div class="titulo_video caixa_aumentar">
-                        <h1>Comercial da 7up</h1>
-                    </div>
-                    <video autoplay loop class="video">
-                        <source src="videos/comercial.mp4" type="video/mp4">
-                    </video>
-                </div>
-
                 
 
             </div>

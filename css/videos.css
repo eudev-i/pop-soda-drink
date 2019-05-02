@@ -17,9 +17,8 @@
 
 /* Caixa central do video */
 .caixa_central_video{
-    width: 1085px;
-    min-height: 700px;
-    
+    width: 700px;
+    min-height: 400px;
     padding: 15px;
     margin-left: auto;  
     margin-right: auto;
@@ -27,18 +26,20 @@
 
 .caixa_principal_video{
     width: 100%;
-    min-height: 530px;
+    min-height: 400px;
     height: auto;
     overflow: hidden;
     padding: 5px;   
 }
 
 .caixa_video{
-    width: 520px;
-    min-height: 530px;
+    width: 700px;
+    min-height: 400px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
     margin-top: 10px;
     margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .titulo_video{
@@ -55,6 +56,6 @@
 
 .video{
     width: 99%;
-    height: 500px;
+    height: 400px;
     margin-left: 2px;
 }
