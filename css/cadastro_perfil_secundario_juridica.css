@@ -9,9 +9,10 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
 
 /* ************** Conteúdo ************* */
 .caixa_central_pjs{
-    width: 1200px;
+    width: 900px;
     height: 450px;
     margin-top: 10px;
+    background-color: red;
     
 }
 
@@ -26,7 +27,6 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     width: 100%;
     height: 70px;
     margin-bottom: 10px;
-    
 }
 
 /* ********** inputs do form ********** */
@@ -40,6 +40,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
 
 .inputs_form_grande{
     width: 31%;
+    margin-right: 20px;
 }
 
 .inputs_form_medio{
@@ -57,6 +58,9 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
 .input_estilo{
     width: 100%;
 }
+.input_estilo2{
+    width: 90px;
+}
 
 
 /* ********* formatacao dos inputs e labels ********* */
@@ -66,10 +70,18 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     border: 1px solid #ccc;
     border-radius: 3px;
     font-size: 18px;
-    font-family: sans-serif;
+    font-family: Gadugi;
     color: #15233a;
 }
-
+.input_estilo2 {
+    height: 35px;
+    margin-top: 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 18px;
+    font-family: Gadugi;
+    color: #15233a;
+}
 .label_estilo{
     font-size: 19px;
     color: #15233a;
@@ -106,7 +118,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     width: 250px;
     height: 40px;
     font-size: 19px;
-    font-family: sans-serif;
+    font-family: Gadugi;
     background-color: transparent;
     border: 1px solid #15233a;
     cursor: pointer;

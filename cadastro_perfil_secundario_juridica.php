@@ -78,8 +78,8 @@
                             </div>
                             <!-- Cidade -->
                             <div class="inputs_form inputs_form_medio_2">
-                                <label class="label_estilo">Estado:</label>
-                                <select class="input_estilo" type="text" name="txtEstadoPjs" id="txtEstadoPjs">
+                                <label class="label_estilo">Estado:</label><br>
+                                <select class="input_estilo2" type="text" name="txtEstadoPjs" id="txtEstadoPjs">
                                     <option value="ola">SP</option>
                                 </select>
                             </div>
