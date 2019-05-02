@@ -30,7 +30,7 @@
         <!-- Conteúdo chamativo e Título da página -->
         <div id="caixa_conteudo_chamativo" style="background-image: url(img/sobre.jpg);">
             <div id="conteudo_chamativo">
-                <h1 style="color:white;"><strong>HISTÓRIA DA MARCA</strong></h1>
+                <h1 style="color:white;">Historia da Marca</h1>
             </div>
         </div>
 
