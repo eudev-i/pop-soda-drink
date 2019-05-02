@@ -190,31 +190,29 @@ a.modal-fechar{
 
 
 .principal-cadastro{
-  width:500px;
+  width:700px;
   height: 400px;
   background-color: white;
   margin-left: auto;
   margin-right: auto;
-  transform: translateY(10%);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  margin-top: 30px;
 }
 
 .principal-cadastro-juridico{
-  width:800px;
+  width:600px;
   height: 500px;
   background-color: white;
   margin-left: auto;
   margin-right: auto;
-  transform: translateY(10%);
 
 }
 
 .escolha-cadastro{
-  width: 400px;
+  width: 350px;
   height:120px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 50px;
 }
 
 .escolha-cadastro-header{
@@ -223,13 +221,13 @@ a.modal-fechar{
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  font-family: sans-serif;
+  font-family: Helvetica;
   font-weight: lighter;
   margin-bottom: 5px;
 }
 
 .escolha-cadastro-body{
-  width: 400px;
+  width: 470px;
   height: 250px;
   margin-left: auto;
   margin-right: auto;
@@ -239,10 +237,9 @@ a.modal-fechar{
   width: 130px;
   height: 130px;
   background-color: lightgray;
-  margin-left: 40px;
+  margin-right:  100px;
   float: left;
   background-color: white;
-  transform: translateY(50%);
 
 }
 
@@ -251,30 +248,26 @@ a.modal-fechar{
   height: 130px;
   cursor: pointer;
 
-
 }
 
 .icone-escolha-cadastro span{
   width: 130px;
   height: 30px;
-  font-size: 16px;
-  font-family: sans-serif;
-  font-weight: bold;
+  font-size: 18px;
+  color: #000;
+  font-family: Helvetica;
   margin-left: 5px;
 }
 
 .cadastro-header-title{
   width: 100%;
   height:50px;
-  background-color:#15233a;
 }
 
 .cadastro-header-title h5{
-  color: white;
-  font-family: sans-serif;
-  font-size: 17px;
-  font-weight: lighter;
-  transform: translateY(50%);
+  color: #000;
+  font-family: Helvetica;
+  font-size: 30px;
   text-align: center;
 
 }
@@ -311,7 +304,7 @@ a.modal-fechar{
   margin-top: 20px;
   margin-left: 30px;
   /* transform: translateX(35%); */
-  font-family: sans-serif;
+  font-family: Helvetica;
   font-size: 15px;
 
 }
@@ -320,7 +313,7 @@ a.modal-fechar{
 .menu_filtos-produtos img{
   width: 15px;
   height: 15px;
-
+  margin-right: 20px;
 }
 
 
@@ -341,7 +334,6 @@ a.modal-fechar{
   min-height: 800px;
   height: auto;
   border: solid 0.5px black;
-  background-color: blue;
   margin-left: 25px;
   float: left;
   margin-top: 10px;

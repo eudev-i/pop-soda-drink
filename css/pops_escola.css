@@ -81,7 +81,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
     height: 345px;
     /*background: linear-gradient(to right, rgba(216, 136, 45, 0), rgba(229, 117, 16, 0.4)); */
     text-align: center;
-    
+
 }
 
 
@@ -116,7 +116,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
 	padding-top: 20px;
     /*background: linear-gradient(to right, rgb(21, 35, 58), rgb(46, 65, 96), rgb(74, 89, 112));*/
     background-color: #d9e6fc;
-    
+
 }
 
 /* caixa central do cadastro */
@@ -188,7 +188,6 @@ input:focus::-webkit-input-placeholder {
     clear: both;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #416baf;
     color: #fff;
     font-family: Gadugi;
     font-size: 20px;
@@ -198,7 +197,6 @@ input:focus::-webkit-input-placeholder {
 }
 
 .botao:hover{
-    background-color: rgba(230, 228, 228, 0.5);
     transition: 0.4s;
     cursor: pointer;
     color: #fff;
