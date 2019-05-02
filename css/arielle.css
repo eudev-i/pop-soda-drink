@@ -596,7 +596,7 @@ a.modal-fechar{
   background-color: white;
   float: inherit;
   font-family: Gadugi;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: lighter;
   text-align: justify;
 }
@@ -618,7 +618,7 @@ a.modal-fechar{
 
 .localidade-evento h6{
   font-family: Helvetica;
-  font-size: 18px;
+  font-size: 17px;
   color:#000;
   margin-left: 15px;
   margin: 10px;
@@ -627,7 +627,7 @@ a.modal-fechar{
 
 .localidade-evento span{
   font-family: Gadugi;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: lighter;
   color: black;
 }
