@@ -15,8 +15,8 @@ header{
   width: 100%;
   height: auto;
   background-color: #15233a;
- 
- 
+
+
 }
 
 #caixa_cabecalho{
@@ -52,7 +52,7 @@ nav{
   background-color: #e57510;
   font-family: Gadugi;
   font-weight: bold;
-  
+
 }
 
 .fixed_nav {
@@ -107,7 +107,7 @@ nav{
 
 .navbar a {
   float: left;
-  font-size: 20px;
+  font-size: 18px;
   color: white;
   text-align: center;
   padding: 8px 15px 8px 15px;
