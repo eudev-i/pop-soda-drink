@@ -17,6 +17,13 @@
          <script src="js/effects.js"></script>
     </head>
     <body>
+        <?php 
+            session_start();
+            require_once('../cms/model/DAO/Conexao.php');   
+            $conex = new Conexao();
+            $con = $conex->connectDatabase();
+
+        ?>
         <!-- header -->
         <header>
            <?php require_once('header.php') ?>
@@ -29,20 +36,27 @@
 
         <!--- caixa video -->
         <div class="caixa_central_video caixa_aumentar">
+        <?php		
+            $sql = "SELECT * FROM tbl_video";
+            $stm = $con->prepare($sql);
+            $success = $stm->execute();
+            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        ?>
             <!-- caixa que guarda os videos -->
             <div class="caixa_principal_video">
                 <!-- caixa do video que contém titulo e o vídeo box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);-->
                 <div class="caixa_video div_esquerda caixa_aumentar">
                     <div class="titulo_video caixa_aumentar">
-                        <h1>Comercial da 7up</h1>
+                        <h1><?php echo ($result['titulo']) ?></h1>
                     </div>
-                    <video autoplay loop class="video">
-                        <source src="videos/videoplayback.mp4" type="video/mp4">
+                    <video class="video">
+                        <source src="../cms/view/temp/<?php echo ($result['caminho']) ?>" type="video/mp4">
                     </video>
                 </div>
-                
-
             </div>
+
+        <?php } ?>
+
         </div>
         <footer> <?php require_once('footer.html')?> </footer> 
     </body>

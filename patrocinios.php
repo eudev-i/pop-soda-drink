@@ -17,6 +17,13 @@
          <script src="js/effects.js"></script>
     </head>
     <body>
+		<?php 
+			session_start();
+			require_once('../cms/model/DAO/Conexao.php');   
+			$conex = new Conexao();
+			$con = $conex->connectDatabase();
+		?>
+		
       <header>
         <?php require_once('header.php');?>
       </header>
@@ -28,34 +35,22 @@
 
         <!-- caixa central que ocupa 100% de largura -->
         <div id="caixa_central_imagens">
+			<?php		
+				$sql = "SELECT * FROM tbl_patrocinio WHERE status = 1";
+				$stm = $con->prepare($sql);
+				$success = $stm->execute();
+				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+			?>
             <!-- caixa da imagem -->
             <div class="caixa_imagem">
-                <img src="img/voleiHinode.jpg" width="330" height="250" title="volei Hinode" alt="Imagem não encontrada" class="imgPatrocinio">
+                <img src="../cms/view/img/temp/<?php echo ($result['logo']) ?>" width="330" height="250" title="volei Hinode" alt="Imagem não encontrada" class="imgPatrocinio">
                 <div class="descricaoPatrocinio">
-                  Time de vôlei: Hinode Barueri no campeonato da Superliga
+                  <?php echo (utf8_encode($result['nome'])) ?>
                 </div>
             </div>
-
-            <div class="caixa_imagem">
-                <img src="img/basqueteRioJaneiro.jpg" width="330" height="250" title="basquete Rio de Janeiro" alt="Imagem não encontrada" class="imgPatrocinio">
-                <div class="descricaoPatrocinio">
-                  Time de vôlei: Hinode Barueri no campeonato da Superliga
-                </div>
-            </div>
-
-            <div class="caixa_imagem">
-                <img src="img/corrida.jpg" width="330" height="250" title="corrida São Silvestre" alt="Imagem não encontrada" class="imgPatrocinio">
-                <div class="descricaoPatrocinio">
-                  Time de vôlei: Hinode Barueri no campeonato da Superliga
-                </div>
-            </div>
-
-            <div class="caixa_imagem">
-                <img src="img/basqueteRioJaneiro.jpg" width="330" height="250" title="basquete Rio de Janeiro" alt="Imagem não encontrada" class="imgPatrocinio">
-                <div class="descricaoPatrocinio">
-                  Time de vôlei: Hinode Barueri no campeonato da Superliga
-                </div>
-            </div>
+		
+			<?php } ?>
+            
         </div>
 
         <!-- FOOTER -->

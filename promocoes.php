@@ -14,21 +14,33 @@
   <script src="js/effects.js"></script>
 </head>
 <body>
+    <?php 
+      session_start();
+      require_once('../cms/model/DAO/Conexao.php');   
+      $conex = new Conexao();
+      $con = $conex->connectDatabase();
+
+    ?>
   <header><?php require_once 'header.php'; ?></header>
 
     <div class="principal">
       <div class="titulo_pagina font-titulo">
           <h1 class="title-pag-promocoes">Promoções</h1>
       </div>
+      <?php		
+					$sql = "SELECT * FROM tbl_promocao WHERE status = 1";
+					$stm = $con->prepare($sql);
+					$success = $stm->execute();
+					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+      ?>
       <div class="section-three-conteudo centralizar_elemento">
         <div class="section-three-conteudo-imagem centralizarY">
           <img class="centralizar_elemento" src="img/7upPromocao.jpg" alt="Promoção">
         </div>
         <div class="section-three-conteudo-infomarcao">
-          <div class="section-three-conteudo-titulo">Ganhe 1 viagem para a Jamaica</div>
+          <div class="section-three-conteudo-titulo"><?php echo (utf8_decode($result['titulo'])) ?></div>
           <div class="section-three-conteudo-texto">
-            Quer viajar para a terra do reggae e conhecer seus rios, montanhas, 
-            cascatas e praias paradisíacas de areia branca com mais 3 amigos?
+            <?php echo (utf8_decode($result['descricao'])) ?>
           </div>
           <br><br><br><div class="titleRegulamento">Regulamento</div>
           <br>
@@ -36,11 +48,13 @@
             <li class="textRegulamento">1 - Compre refrigerantes de lata da 7up</li>
             <li class="textRegulamento">2 - Junte as latas</li>
             <li class="textRegulamento">3 - Vá até o estabelecimento no qual comprou e troque suas latas por cupons de sorteio</li>
-            <li class="textRegulamento">4 - Agora é só esperar para o sorteio no dia 20/06/2019</li>
+            <li class="textRegulamento">4 - Agora é só esperar para o sorteio</li>
             <li class="textRegulamento">5 - O resultado será divulgado aqui no nosso site!</li>
           </ol>
         </div>
       </div>
+
+      <?php } ?>
 
     </div>
   <footer> <?php require_once 'footer.html'; ?></footer>

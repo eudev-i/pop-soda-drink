@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="css/arielle.css">
         <link rel="stylesheet" type="text/css" href="css/historia_marca.css">
         <link rel="stylesheet" type="text/css" href="css/titulo_pagina.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/anuncios.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,6 +23,14 @@
     </head>
 
     <body>
+        <?php 
+            session_start();
+            require_once('../cms/model/DAO/Conexao.php');   
+            $conex = new Conexao();
+            $con = $conex->connectDatabase();
+
+        ?>
+
         <!-- header -->
         <header>
           <?php require_once('header.php') ?>
@@ -37,18 +46,16 @@
         <!-- Conteudo da pagina -->
         <div class="caixa_historia_marca centralizar_caixa">
             <div class="texto centralizar_caixa">
+            <?php		
+					$sql = "SELECT * FROM tbl_historia";
+					$stm = $con->prepare($sql);
+					$success = $stm->execute();
+					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        	?>
                 <p>
-                    Em 2018 Laura Krus fundou, juntamente com suas duas filhas,
-                    a POP'Soda Drink, a qual é uma fornecedora em atacado de bebidas não alcoólicas.
-                    <br>A POP’Soda Drink comprou, recentemente, algumas marcas antigas
-                    de bebidas que saíram do mercado no século passado, com o objetivo de
-                    restabelecer essas marcas no Brasil.
-                    <br>Com isso se desenvolveu a ideia de estabelecer nessa marca o e-commerce
-                    de bebidas não alcoólicas.
-                    <br>A empresa POP’Soda Drink, trabalha no ramo do comércio de bebidas não alcoólicas,
-                    está localizada na Av. Luiz Carlos Berrini, onde é destinado a toda a parte administrativa,
-                    e há um galpão de armazenamento e logística em Tatuapé.
+                    <?php echo (utf8_decode($result['descricao'])) ?>
                 </p>
+            <?php } ?>
             </div>
         </div>
 
