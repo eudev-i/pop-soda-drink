@@ -36,7 +36,7 @@
         <!-- caixa que guarda todo o conteudo da página -->
         <div id="caixa_geral_noticias">
             <?php		
-					$sql = "SELECT * FROM tbl_noticia WHERE status = 1";
+					$sql = "SELECT * FROM tbl_noticia WHERE status = 1 ";
 					$stm = $con->prepare($sql);
 					$success = $stm->execute();
 					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	

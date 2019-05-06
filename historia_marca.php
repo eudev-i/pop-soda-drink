@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="css/arielle.css">
         <link rel="stylesheet" type="text/css" href="css/historia_marca.css">
         <link rel="stylesheet" type="text/css" href="css/titulo_pagina.css">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta charsest="UTF-8">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/anuncios.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

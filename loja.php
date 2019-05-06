@@ -12,6 +12,12 @@
      <script src="js/effects.js"></script>
    </head>
    <body>
+        <?php 
+          session_start();
+          require_once('../cms/model/DAO/Conexao.php');   
+          $conex = new Conexao();
+          $con = $conex->connectDatabase();
+        ?>
        <header><?php require_once 'header.php'; ?></header>
        <div class="principal">
          <div class="area-brindes">
@@ -19,42 +25,27 @@
               <div class="carrinho-compras"></div>
            </a>
 
+           <?php		
+              $sql = "SELECT * FROM tbl_brinde WHERE status = 1";
+              $stm = $con->prepare($sql);
+              $success = $stm->execute();
+              foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        	?>
 
            <div class="caixa-produtos-brindes">
              <div class="card-imagem-brinde">
-               <img src="img/brinde_quadro.jpg" alt="">
+               <img src="../cms/view/img/temp/<?php echo ($result['imagem'])?>" alt="">
              </div>
 
              <div class="descricao-brinde">
-               <p> Quadro 7Up Vintage </p>
-               <span> R$ 30,90</span>
+               <p> <?php echo (utf8_decode($result['nome'])) ?> </p>
+               <span> R$ <?php echo (utf8_decode($result['valor_unitario'])) ?></span>
                <input type="submit" name="btnCompra" Value="Comprar">
              </div>
            </div>
 
-           <div class="caixa-produtos-brindes">
-             <div class="card-imagem-brinde">
-               <img src="img/brinde-relogio.jpg" alt="">
-             </div>
+          <?php } ?>
 
-             <div class="descricao-brinde">
-               <p> Relógio Grapette </p>
-               <span> R$ 35,00 </span>
-               <input type="submit" name="btnCompra" Value="Comprar">
-             </div>
-           </div>
-
-           <div class="caixa-produtos-brindes">
-             <div class="card-imagem-brinde">
-               <img src="img/brinde-grapette.jpg" alt="">
-             </div>
-
-             <div class="descricao-brinde">
-                <p> Caixa Grapette </p>
-               <span> R$ 44,90 </span>
-               <input type="submit" name="btnCompra" Value="Comprar">
-             </div>
-           </div>
          </div>
        </div>
        <footer> <?php require_once 'footer.html' ?></footer>
