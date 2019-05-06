@@ -13,6 +13,13 @@
     <script src="js/effects.js"></script>
   </head>
   <body>
+    <?php 
+      session_start();
+      require_once('../cms/model/DAO/Conexao.php');   
+      $conex = new Conexao();
+      $con = $conex->connectDatabase();
+
+    ?>
     <header><?php require_once 'header.php'; ?></header>
     <div class="teste_produto">
       <div class="principal">
@@ -36,12 +43,18 @@
         </div>
 
         <div class="area-produtos">
+          <?php		
+            $sql = "SELECT * FROM tbl_produto WHERE status = 1";
+            $stm = $con->prepare($sql);
+            $success = $stm->execute();
+            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        	?>
           <div class="section-six-products">
             <div class="section-six-image-products centralizar_elemento">
-              <img src="img/gini.jpg" alt="Produto">
+              <img src="../cms/view/img/temp/<?php echo ($result['imagem']) ?>" alt="Produto">
             </div>
             <div class="section-six-text-products">
-              <h2>Fardo com 16 Gini - 350ml cada</h2>
+              <h2><?php echo (utf8_decode($result['nome'])) ?></h2>
             </div>
 
             <div class="section-six-button">
@@ -50,32 +63,7 @@
 
           </div>
 
-          <div class="section-six-products">
-            <div class="section-six-image-products centralizar_elemento">
-              <img src="img/7up1.jpg" alt="Produto">
-            </div>
-            <div class="section-six-text-products">
-              <h2>Fardo com 16 7UP - 350ml cada</h2>
-            </div>
-
-            <div class="section-six-button">
-              <input type="button" name="btn_tabelanutricional" value="Tabela nutrional">
-            </div>
-
-          </div>
-
-          <div class="section-six-products">
-            <div class="section-six-image-products centralizar_elemento">
-              <img src="img/crush.jpg" alt="Produto">
-            </div>
-            <div class="section-six-text-products">
-              <h2>Fardo com 16 Crush - 350ml cada</h2>
-            </div>
-
-            <div class="section-six-button">
-              <input type="button" name="btn_tabelanutricional" value="Tabela nutrional">
-            </div>
-
+          <?php } ?>
           </div>
         </div>
       </div>

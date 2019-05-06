@@ -50,7 +50,7 @@
                         <h1><?php echo ($result['titulo']) ?></h1>
                     </div>
                     <video class="video">
-                        <source src="../cms/view/temp/<?php echo ($result['caminho']) ?>" type="video/mp4">
+                        <iframe width='560' height='315' src="<?php echo ($result['caminho']) ?>" frameborder='0' allowfullscreen></iframe>";
                     </video>
                 </div>
             </div>

@@ -14,7 +14,13 @@
    <script src="js/effects.js"></script>
 </head>
 <body>
-
+      <?php 
+        session_start();
+        require_once('../cms/model/DAO/Conexao.php');   
+        require_once('../cms/model/DAO/promocaoDAO.php');
+        $conex = new Conexao();
+        $con = $conex->connectDatabase();
+      ?>
       <header>
         <?php require_once 'header.php'; ?>
       </header>
@@ -37,63 +43,29 @@
         <h1 class="titulo_sections">Produtos em destaque</h1>
         <div class="section-six-conteudo centralizar_elemento">
 
-          <div id="box_products" class="section-six-div-products fadeInTop">
-            <div class="section-six-products">
-              <div class="section-six-image-products centralizar_elemento">
-                <img src="img/7up1.jpg" alt="Produto">
-              </div>
-              <div class="section-six-text-products">
-                <h2>Fardo com 16 7UP - 350ml cada</h2>
-                <p>R$30,40</p>
-              </div>
+          <?php		
+            $sql = "SELECT * FROM tbl_produto WHERE status_home = 1 ORDER BY RAND() LIMIT 4";
+            $stm = $con->prepare($sql);
+            $success = $stm->execute();
+            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        	?>
+            <div id="box_products" class="section-six-div-products fadeInTop">
+              <div class="section-six-products">
+                <div class="section-six-image-products centralizar_elemento">
+                  <img src="img/7up1.jpg" alt="Produto">
+                </div>
+                <div class="section-six-text-products">
+                  <h2><?php echo (utf8_decode($result['nome'])) ?></h2>
+                  <p><?php echo (utf8_decode($result['valor_unitario'])) ?></p>
+                </div>
 
-              <div class="section-six-button">
-                <input type="button" value="Adicionar o fardo">
-              </div>
+                <div class="section-six-button">
+                  <input type="button" value="Adicionar o fardo">
+                  
+                </div>
 
-            </div>
-            <div class="section-six-products">
-              <div class="section-six-image-products centralizar_elemento">
-                <img src="img/gini.jpg" alt="Produto">
               </div>
-              <div class="section-six-text-products">
-                <h2>Fardo com 16 Gini - 350ml cada</h2>
-                <p>R$30,40</p>
-              </div>
-
-              <div class="section-six-button">
-                <input type="button" value="Adicionar o fardo">
-              </div>
-
-            </div>
-            <div class="section-six-products">
-              <div class="section-six-image-products centralizar_elemento">
-                <img src="img/crush.jpg" alt="Produto">
-              </div>
-              <div class="section-six-text-products">
-                <h2>Fardo com 16 Crush - 350ml cada</h2>
-                <p>R$30,40</p>
-              </div>
-
-              <div class="section-six-button">
-                <input type="button" value="Adicionar o fardo">
-              </div>
-
-            </div>
-            <div class="section-six-products">
-              <div class="section-six-image-products centralizar_elemento">
-                <img src="img/mirinda.jpg" alt="Produto">
-              </div>
-              <div class="section-six-text-products">
-                <h2>Fardo com 16 Crush - 350ml cada</h2>
-                <p>R$30,40</p>
-              </div>
-
-              <div class="section-six-button">
-                <input type="button" value="Adicionar o fardo">
-              </div>
-
-            </div>
+            <?php } ?>
           </div>
         </div>
 
@@ -147,21 +119,27 @@
       <section class="section-three">
         <h1 class="titulo_sections">Promoção do mês</h1>
         <div id="promo" class="section-three-conteudo centralizar_elemento fadeInTop">
-          <div class="section-three-conteudo-infomarcao">
-            <div class="section-three-conteudo-titulo">Ganhe 1 viagem para a Jamaica</div>
-            <div class="section-three-conteudo-texto">
-              Quer viajar para a terra do reggae e conhecer seus rios, montanhas, 
-              cascatas e praias paradisíacas de areia branca com mais 3 amigos?
-            </div>
-            <button type="button">
-              Regulamento
-            </button>
-
-
+          <div class="section-three-conteudo-infomarcao"> 
+            <?php		
+              $sql = "SELECT * FROM tbl_promocao WHERE status_home = 1 ORDER BY rand() LIMIT 1";
+              $stm = $con->prepare($sql);
+              $success = $stm->execute();
+              foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
+            ?>
+              <div class="section-three-conteudo-titulo"><?php echo (utf8_decode($result['titulo'])) ?></div>
+              <div class="section-three-conteudo-texto">
+                <?php echo (utf8_decode($result['descricao'])) ?>
+              </div>
+              <!--<button type="button">
+                Regulamento
+              </button>
+              -->
           </div>
           <div class="section-three-conteudo-imagem centralizarY">
-            <img class="centralizar_elemento" src="img/7upPromocao.jpg" alt="Promoção">
+            <img src="../cms/view/img/temp/<?php echo ($result['img_promo']) ?>" width="330" height="250" title="volei Hinode" alt="Imagem não encontrada" class="imgPatrocinio">
           </div>
+
+          <?php } ?>
         </div>
       </section>
 
@@ -169,31 +147,36 @@
       <section class="section-four">
         <h1 class="titulo_sections">Fique de olho na POP'S</h1>
         <div  id="news" class="section-four-conteudo centralizar_elemento fadeInLeft">
+            <?php		
+              $sql = "SELECT * FROM tbl_noticia WHERE status_home = 1 ORDER BY rand() LIMIT 1";
+              $stm = $con->prepare($sql);
+              $success = $stm->execute();
+              foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
+            ?>
+          
           <div class="caixa_noticia ">
             <div class="caixa_noticia-imagem centralizarY">
-              <img class="centralizar_elemento" src="img/noticias.png" alt="Notícia">
+              <img class="centralizar_elemento" src="../cms/view/img/temp/<?php echo ($result['imagem']) ?>" alt="Notícia">
             </div>
             <div class="caixa_noticia-infomarcao">
               <div class="informacoes">
                 <div class="caixa_noticia-titulo">
-                  O refrigerante Grapette chega ao Brasil
+                  <?php echo ($result['titulo']) ?>
                 </div>
                 <div class="caixa_noticia-texto">
-                O refrigerante Grapette chegou ao Brasil, em 1948, através da Companhia de 
-                Refrigerantes Guanabara, sediada no Estado do Rio de Janeiro.
-                <br>Lembrado pelos consumidores até os dias de hoje, o slogan 
-                “Quem bebe Grapette repete” confirmou a identidade do produto como 
-                delicioso e inesquecível, sendo considerado um dos marcos de comunicação.
+                  <?php echo ($result['descricao']) ?>
                 </div>
                 <div class="caixa_noticia-data">
-                  30/03/2019
+                  <?php echo date('d/m/Y', strtotime($result['dt_noticia'])); ?>
                 </div>
               </div>
             </div>
           </div>
+
+            <?php } ?>
           <div class="caixa_noticia-botao">
             <button type="button" name="button">
-              Mais notícias
+              <a href="noticias.php">Mais notícias</a>
             </button>
           </div>
           <div class="caixa_email centralizar_elemento">
@@ -211,9 +194,15 @@
       <!-- SECTION 5 -->
       <section class="section-five">
         <h1 class="titulo_sections">POP'S Ecológico</h1>
+        <?php		
+          $sql = "SELECT * FROM tbl_sustentavel WHERE status = 1 LIMIT 1";
+          $stm = $con->prepare($sql);
+          $success = $stm->execute();
+          foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
+        ?>
         <div id="sustentavel" class="section-five-conteudo centralizar_elemento fadeInTop">
           <div class="caixa_sustentavel-imagem centralizarY">
-            <img class="centralizar_elemento" src="img/ecologia.jpg" alt="Ecológico">
+            <img class="centralizar_elemento" src="../cms/view/img/temp/<?php echo ($result['imagem']) ?>" alt="Ecológico">
           </div>
           <div class="caixa_sustentavel-infomarcao">
 
@@ -221,32 +210,35 @@
               Planeta Sustentável
             </div>
             <div class="caixa_sustentavel-texto">
-            Com o consumo excessivo e a expansão industrial, o planeta começou a ficar “doente”. 
-            A degradação dos recursos naturais finitos pode trazer um futuro desastroso para a 
-            humanidade, por isso a necessidade de um planeta sustentável, que garanta vida digna 
-            às próximas gerações.
-            <br>Ter um planeta sustentável exige o uso racional dos recursos naturais e a preservação
-             das florestas, rios e ecossistemas. Garantir um planeta mais sustentável é obrigação de toda a sociedade e dos governos.
-             <br>Para isso, precisamos usar as fontes de energia mais econômicas e menos poluentes, preservar as fontes de água e reutilizar 
-             a água da chuva, tratar os resíduos e esgotos, reciclar e buscar uma economia verde.
+              <?php echo ($result['descricao']) ?>
             </div>
           </div>
         </div>
+
+        <?php } ?>
+
       </section>
       <section class="section-eight">
         <h1 class="titulo_sections">Comentários POP'S</h1>
         <div id="comments" class="section-eight-conteudo centralizar_elemento">
           <div class="caixa_comentario centralizar_elemento">
+          <?php		
+            $sql = "SELECT comentario.*, pessoa_fisica.nome AS pessoa_nome
+            FROM tbl_comentario AS comentario
+            INNER JOIN tbl_pessoa_fisica AS pessoa_fisica ON pessoa_fisica.id_p_fisica = comentario.id_p_fisica";
+            $stm = $con->prepare($sql);
+            $success = $stm->execute();
+            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
+          ?>
             <div class="section-eight-usuario">
               <div class="section-eight-usuario-imagem centralizarY">
                 <img class="centralizar_elemento" src="img/icon_user.png" alt="Usuário">
               </div>
               <div class="section-eight-usuario-nome">
-                Vitoria Gonçalves
+                <?php echo ($result['pessoa_nome']) ?>
               </div>
               <div class="section-eight-usuario-comentario">
-                Fui no evento da POP'S no Colégio Morumbi e foi incrivel. A palestra de planeta sustentável e 
-                a divulgação dos produtos! Agora só tomo produtos fornecidos pela POP'S haha.
+                <?php echo ($result['descricao']) ?>
               </div>
             </div>
             <div class="section-eight-resposta">
@@ -259,29 +251,9 @@
               </div>
             </div>
           </div>
-          <div class="caixa_comentario centralizar_elemento">
-            <div class="section-eight-usuario">
-              <div class="section-eight-usuario-imagem centralizarY">
-                <img class="centralizar_elemento" src="img/icon_user.png" alt="Usuário">
-              </div>
-              <div class="section-eight-usuario-nome">
-                Arielle Mattos
-              </div>
-              <div class="section-eight-usuario-comentario">
-                Fui ganhadora da última promoção da POP'S e ganhei R$ 500,00 em produtos!!
-              </div>
-            </div>
-            <div class="section-eight-resposta">
-              <div class="caixa_input">
-                <label for="txt_resposta1">Resposta</label>
-                <input type="text" id="txt_resposta1" name="txt_resposta1">
-              </div>
-              <div class="caixa_botao_email">
-                <button type="button" name="button">Enviar</button>
-              </div>
-            </div>
-          </div>
         </div>
+
+        <?php } ?>
 
     </section>
     <footer>
