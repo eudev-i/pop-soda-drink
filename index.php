@@ -241,6 +241,7 @@
                 <?php echo ($result['descricao']) ?>
               </div>
             </div>
+			
             <div class="section-eight-resposta">
               <div class="caixa_input">
                 <label for="txt_resposta">Resposta</label>
@@ -250,10 +251,11 @@
                 <button type="button" name="button">Enviar</button>
               </div>
             </div>
+			<?php } ?>
           </div>
         </div>
 
-        <?php } ?>
+        
 
     </section>
     <footer>
