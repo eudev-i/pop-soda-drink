@@ -15,8 +15,17 @@
 </head>
 <body>
       <?php 
+        // Variáveis que recebem a URL e o caminho local
+        $path_url = "http://".$_SERVER['HTTP_HOST']."/Tcc";
+        $path_local = $_SERVER['DOCUMENT_ROOT']."/Tcc";
+        
+        // Criando variáveis de sessões que recebem esses valores
+        $_SESSION['path_url'] = $path_url;
+        $_SESSION['path_local'] = $path_local;
+        
+        
         session_start();
-        require_once('../cms/model/DAO/Conexao.php');   
+        require_once('../cms/model/DAO/conexao.php');   
         require_once('../cms/model/DAO/promocaoDAO.php');
         $conex = new Conexao();
         $con = $conex->connectDatabase();
