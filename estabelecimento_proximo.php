@@ -35,30 +35,48 @@ $rsPessoaJuridica = $controllerPessoaJuridica->listarRegistros();
 
   <script type="text/javascript">
 
-  function initialize() {
-    var mapOptions = {
-      center: new google.maps.LatLng(-23.5417691, -46.9098085),
-      zoom: 13,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("caixa_mapa"),
-    mapOptions);
+  $(document).ready(function() {
 
-    //nova posição
-    var ponto = new google.maps.LatLng(-23.5417691, -46.9098085);
+    var map = new google.maps.Map(document.getElementById("caixa_mapa"), {
+        center: {
+          lat: 27.7,
+          lng: 85.3
+        },
+        zoom: 15
+    });
+
     var marker = new google.maps.Marker({
-      position: ponto,//seta posição
-      map: map,//Objeto mapa
-      title:"Hello World!",//string que será exibida quando passar o mouse no marker
+      position: {
+        lat: 27.7,
+        lng: 85.3
+      },
+      map: map,
       icon: "img/marcador.png"
     });
-  }
+
+    $('.caixa_estabelecimentos').click(function(){
+
+      var lat = -23.5417691;
+      var lng = -46.9098085;
+
+      var location = new google.maps.LatLng(lat, lng);
+
+      map.setCenter(location);
+      marker.setPosition(location);
+
+    });
+
+});
+
+
+  // URL
+  //https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDLyCfZiJMTKw8SdqUKqCgYay1rTwnUtF8&sensor=false&address=03382130
 
   </script>
 
 </head>
 
-<body onload="initialize()">
+<body>
 
   <header>
     <?php require_once('header.php')?>
@@ -74,10 +92,10 @@ $rsPessoaJuridica = $controllerPessoaJuridica->listarRegistros();
 
       <?php foreach ($rsPessoaJuridica as $pessoaJuridica) { ?>
 
-      <div class="caixa_estabelecimentos">
+      <div class="caixa_estabelecimentos" onclick="teste();">
         <div class="estabelecimento"><?= $pessoaJuridica->getNomeFantasia() ?></div>
-        <div class="endereco"><?= $pessoaJuridica->getNomeFantasia() ?></div>
-        <div class="telefone"><?= $pessoaJuridica->getNomeFantasia() ?></div>
+        <div class="endereco"><?= $pessoaJuridica->getLogradouro()." - ".$pessoaJuridica->getBairro()." - ".$pessoaJuridica->getCidade() ?></div>
+        <div class="telefone"><?= $pessoaJuridica->getTelefone() ?></div>
       </div>
 
     <?php } ?>
