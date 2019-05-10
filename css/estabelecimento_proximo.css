@@ -22,7 +22,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
 }
 
 .caixa_central_est_proximo{
-  width: 1200px;
+  width: 1400px;
   height: 600px;
   padding-top: 30px;
   margin: auto;
@@ -40,7 +40,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
 
 #caixa_enderecos{
   height: auto;
-  width: 300px;
+  width: 480px;
   max-height: 550px;
   overflow: auto;
   padding-bottom: 10px;
@@ -57,6 +57,11 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus, option:focus {
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
+  cursor: pointer;
+}
+
+.caixa_estabelecimentos:hover{
+  transform: scale(1.02);
 }
 
 .estabelecimento {

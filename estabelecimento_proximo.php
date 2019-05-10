@@ -37,42 +37,66 @@ $rsPessoaJuridica = $controllerPessoaJuridica->listarRegistros();
 
   $(document).ready(function() {
 
+    // Variável que recebe as coordenadas iniciais do mapa e preenche a div
     var map = new google.maps.Map(document.getElementById("caixa_mapa"), {
-        center: {
-          lat: 27.7,
-          lng: 85.3
-        },
-        zoom: 15
+      center: {
+        lat: -23.5296000,
+        lng: -46.8977517
+      },
+      zoom: 15
     });
 
+    // Localizaçção do marcador do mapa
     var marker = new google.maps.Marker({
       position: {
-        lat: 27.7,
-        lng: 85.3
+        lat: -23.5296000,
+        lng: -46.8977517
       },
       map: map,
       icon: "img/marcador.png"
     });
 
+    // Ao clicar na caixa de estabalecimentos, ocorre um evento
     $('.caixa_estabelecimentos').click(function(){
 
-      var lat = -23.5417691;
-      var lng = -46.9098085;
+      // Declara as varipaveis de cordenadas
+      var lat;
+      var lng;
 
-      var location = new google.maps.LatLng(lat, lng);
+      // Url com a chave da API
+      var url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDLyCfZiJMTKw8SdqUKqCgYay1rTwnUtF8&sensor=false&address=";
 
-      map.setCenter(location);
-      marker.setPosition(location);
+      // CEP que será pesquisado na requisição
+      var cep = $(this).data("cep");
+
+      // Faz a chamada da URL e retorna um JSON
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: url+cep,
+        success: function(data) {
+
+          // Seta os valores das coordenadas a partir dos resultados do JSON
+          lat = data.results[0].geometry.location.lat;
+          lng = data.results[0].geometry.location.lng;
+
+          // Seta uma nova posição usando as novas coordenadas
+          var location = new google.maps.LatLng(lat, lng);
+
+          // Move o mapa para nova posição
+          map.setCenter(location);
+
+          // Move o marcador para nova posição
+          marker.setPosition(location);
+
+        }
+      });
 
     });
 
 });
 
-
-  // URL
-  //https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDLyCfZiJMTKw8SdqUKqCgYay1rTwnUtF8&sensor=false&address=03382130
-
-  </script>
+</script>
 
 </head>
 
@@ -92,13 +116,13 @@ $rsPessoaJuridica = $controllerPessoaJuridica->listarRegistros();
 
       <?php foreach ($rsPessoaJuridica as $pessoaJuridica) { ?>
 
-      <div class="caixa_estabelecimentos" onclick="teste();">
-        <div class="estabelecimento"><?= $pessoaJuridica->getNomeFantasia() ?></div>
-        <div class="endereco"><?= $pessoaJuridica->getLogradouro()." - ".$pessoaJuridica->getBairro()." - ".$pessoaJuridica->getCidade() ?></div>
-        <div class="telefone"><?= $pessoaJuridica->getTelefone() ?></div>
-      </div>
+        <div class="caixa_estabelecimentos" data-cep="<?= $pessoaJuridica->getCep() ?>" onclick="teste();">
+          <div class="estabelecimento"><?= utf8_decode($pessoaJuridica->getNomeFantasia()) ?></div>
+          <div class="endereco"><?= utf8_decode($pessoaJuridica->getLogradouro()." - ".$pessoaJuridica->getBairro()." - ".$pessoaJuridica->getCidade()) ?></div>
+          <div class="telefone"><?= $pessoaJuridica->getTelefone() ?></div>
+        </div>
 
-    <?php } ?>
+      <?php } ?>
 
     </div>
 
