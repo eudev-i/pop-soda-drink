@@ -15,11 +15,9 @@ class PessoaJuridicaBusiness{
        // Variável que recebe a variável de sessão
         $path_local = $_SESSION['path_local'];
 
-        echo($path_local);
-
         // Importanto a classe de conexão com BD
         require_once "$path_local/cms/model/DAO/conexao.php";
-        
+         
         // Instânciando a classe de Conexão
         $this->conexao = new Conexao();
     }
@@ -111,6 +109,8 @@ class PessoaJuridicaBusiness{
         return $result;
     }
 
+    
+
     public function selectPerfis($cnpj){
         
         $sql = "SELECT * FROM tbl_perfil_juridico WHERE cnpj = '$cnpj'";
@@ -137,6 +137,42 @@ class PessoaJuridicaBusiness{
                 'usuario' => $rsPerfil['usuario'],
                 'senha' => $rsPerfil['senha'],
                 'status' => $rsPerfil['status'],
+            );
+
+            $cont += 1;
+        }
+
+       
+        // Fechando a conexão com BD
+        $this->conexao->closeDatabase();
+       
+        //retorna o objeto
+        return $result;
+    }
+
+    public function selectAnuncios($cnpj){
+
+    
+        $sql = "SELECT * FROM tbl_anuncio WHERE cnpj = '$cnpj'";
+        
+        //Recebendo a função que faz a conexão com BD
+        $con = $this->conexao->connectDatabase();
+        // Executa o script no BD
+        if (!$con->query($sql))
+            echo 'Erro no script de select';
+
+        $select = $con->query($sql);
+        $cont = 0;
+        while($rsAnuncio = $select->fetch(PDO::FETCH_ASSOC)){
+           
+            //criando vetor e atribuindo resultados no banco dentro dele
+            $result[$cont] = array(
+                'success' => true,
+                'cnpj' => $rsAnuncio['cnpj'],
+                'foto' => $rsAnuncio['img_anuncio'],
+                'id_anuncio' => $rsAnuncio['id_anuncio'],
+                'descricao' => utf8_encode($rsAnuncio['descricao']),
+                'status' => $rsAnuncio['status'],
             );
 
             $cont += 1;
@@ -218,6 +254,32 @@ class PessoaJuridicaBusiness{
             '$cnpj')";
 
         
+            //Recebendo a função que faz a conexão com BD
+            $con = $this->conexao->connectDatabase();
+            // Executa o script no BD
+            if (!$con->query($sql))
+                $result = array(
+                    'success' => false,
+                    'message' => 'Erro em inserir novo perfil',
+                    
+                );
+            else
+                $result = array(
+                    'success' => true,
+                    'message' => 'Adicionado com Sucesso',
+                
+                );
+            // Fechando a conexão com BD
+            $this->conexao->closeDatabase();
+            
+            //retorna o objeto
+            return $result;
+    }
+
+    public function insertNewAd($foto, $desc,$status,$cnpj){
+        $sql = "INSERT INTO tbl_anuncio(descricao, img_anuncio, status, cnpj)
+            VALUES('$desc', '$foto', $status, '$cnpj')";
+
             //Recebendo a função que faz a conexão com BD
             $con = $this->conexao->connectDatabase();
             // Executa o script no BD

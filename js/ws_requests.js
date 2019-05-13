@@ -1,3 +1,4 @@
+
 //-------FAZ O LOGIN NO DASHBOARD DA PESSOA JURIDICA ------------
 var host = window.location.host + "/Tcc";
 $("#btnlogar").click(function(){
@@ -30,26 +31,9 @@ $("#btnlogar").click(function(){
 $("#form-perfil").submit(function(evt){
     evt.preventDefault();
     var cnpjCookie = document.cookie;
-    
-    // var perfilJuridico = {
-    //     responsavel: $('#txt_responsavel').val(),
-    //     email: $('#txt_email').val(),
-    //     cel: $('#txt_cel').val(),
-    //     tel: $('#txt_tel').val(),
-    //     user: $('#txt_user').val(),
-    //     senha: $('#txt_password').val(),
-    //     status: 0,
-    //     foto: 'n_possui'
-    //  };
-     //console.log(perfilJuridico.foto);
     $.ajax({
         type: "POST",
         url: `http://${host}/pops/backend/services/PJService.php/?op=addProfile`,
-        //url: '#',
-        // data: {"responsavel":perfilJuridico.responsavel, "email":perfilJuridico.email, 
-        // "cel":perfilJuridico.cel, "tel":perfilJuridico.tel, "user":perfilJuridico.user,
-        // "senha":perfilJuridico.senha, "status":perfilJuridico.status,
-        // "cnpj":cnpjCookie, "foto":perfilJuridico.foto},
         data: new FormData($("#form-perfil")[0]),
         cache: false,
         contentType: false,
@@ -68,15 +52,41 @@ $("#form-perfil").submit(function(evt){
     });
 });
 
+//-------ADICIONAR ANUNCIO------------
+$("#form-anuncio").submit(function(evt){
+    evt.preventDefault();
+   
+    $.ajax({
+        type: "POST",
+        url: `http://${host}/pops/backend/services/PJService.php/?op=addAnuncio`,
+        data: new FormData($("#form-anuncio")[0]),
+        cache: false,
+        contentType: false,
+        processData: false,
+        async: true,
+        dataType:"json",
+        success: function(data){
+            //alert(perfilJuridico.foto);
+             var html = "<div>"+data.message+"</div>";
+             $("#msg_add").html(html);
+             $("#form-anuncio")[0].reset();
+             getAdData();
+        },
+        error: function(){
+            alert('deu erro');
+        }
+    });
+});
+
 function getAllData(){
     var cnpjCookie = document.cookie;
     $.ajax({
         type: "POST",
-        url: `http://${host}/pops-site/backend/services/PJService.php/?op=dashboard`,
+        url: `http://${host}/pops/backend/services/PJService.php/?op=dashboard`,
         dataType: "json",
         data: {"cnpj":cnpjCookie},
         success: function(data){
-           console.log(data);
+         
            
             $('#foto').attr('src', data.foto);
             $('#nom_fantasia').html(data.nome_fantasia);
@@ -91,6 +101,14 @@ function getAllData(){
             $('#num').html(data.numero);
             $('#cep').html(data.cep);
             $('#uf').html(data.uf);
+
+            //preenchendo campos da modal
+            $('#txt_nome').val(data.razao_social);
+            $('#txt_logradouro').val(data.logradouro);
+            $('#txt_num').val(data.numero);
+            $('#txt_cidade').val(data.cidade);
+            $('#txt_uf').val(data.uf);
+           
         }
     });
 }
@@ -99,7 +117,7 @@ function getPerfilData(){
     var cnpjCookie = document.cookie;
     $.ajax({
         type: "POST",
-        url: `http://${host}/pops-site/backend/services/PJService.php/?op=perfis`,
+        url: `http://${host}/pops/backend/services/PJService.php/?op=perfis`,
         dataType: "json",
         data: {"cnpj":cnpjCookie},
         success: function(data){
@@ -110,7 +128,10 @@ function getPerfilData(){
             for(var i = 0; i < data.length; i++){
                console.log('entrou no for');
                html+= '<p class="font-negrito font-texto">Users: </p><p class="font-texto nome_perfil" >'+data[i].usuario+'</p>';
-               html+= `<img class="elemento_direita img_perfil" src='http://${host}/pops-site/img/temp/${data[i].foto}' width="38" height="38" alt="ola" title="ola"></img><br>`;
+               html+= `<img class="elemento_direita img_perfil" src='http://${host}/pops/img/temp/${data[i].foto}' width="30" height="30" alt="ola" title="ola"></img>`;
+               html+= `<div class="edit">
+                            <img class="elemento_direita img_perfil edit"  src='http://${host}/cms/view/img/editar.png' width="30" height="30" alt="ola" title="ola">
+                        </img></div><br>`;
            }
            html+='</div>';
            $("#container_perfil").html(html);
@@ -119,3 +140,47 @@ function getPerfilData(){
         }
     });
 }
+
+function getAdData(){
+   
+    var cnpjCookie = document.cookie;
+    $.ajax({
+        type: "POST",
+        url: `http://${host}/pops/backend/services/PJService.php/?op=ads`,
+        dataType: 'json',
+        data: {"cnpj":cnpjCookie},
+        success: function(data){
+          var html = '<div class="container_card_anuncio">';
+          for(var i = 0; i < data.length; i++){
+            
+               html+= `<a class="click_me" href="#" onclick="callModal('modal-anuncio.php');$('#container').fadeIn(600);"><div class="card_anuncio">`;
+               html+= `<div class="card_img_anuncio"><img class="img_anuncio" src='http://${host}/cms/view/img/temp/${data[i].foto}'  alt="ads" title="ads"></img></div>`;
+               html+= `<div class="options">Descrição</div>`;
+               html+= `<div class="desc_anuncio">${data[i].descricao}</div>`;
+            
+               html+= `</div></a>`;
+
+            
+           }
+          $("#container_card_anuncio").html(html);
+        },
+        error: function(xhr){
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+           
+        }
+    });
+}
+
+function callModalWithData(data){
+    $.ajax({
+      type: "GET",
+      url: 'modal-anuncio.php',
+      success: function(dados){
+        $("#modal").html(dados)
+      }
+    });
+  }
+
+
+

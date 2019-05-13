@@ -31,6 +31,13 @@
             echo json_encode($pjBusiness->selectPerfis($cnpj));
         }
 
+        if($op=='ads'){
+            $cnpj = $_COOKIE['cnpj']; 
+            //callback
+            //var_dump($pjBusiness->selectAnuncios($cnpj));
+            echo json_encode($pjBusiness->selectAnuncios($cnpj));
+        }
+
         if($op=='addProfile'){
             
              $responsavel = $_POST['txt_responsavel'];
@@ -64,5 +71,22 @@
                 echo json_encode(array("success"=>false, "message"=>"Limite de perfis já alcançado!"));
             }
         }
+
+        if($op=='addAnuncio'){
+            //resgatando valores
+            $foto = upload($_FILES['flt_anuncio']);
+            $desc = $_POST['txtadescricao'];
+            $status = $_POST['slt_status'];
+            $cnpj = $_COOKIE['cnpj'];
+           
+            //callback
+            echo json_encode($pjBusiness->insertNewAd(
+                   $foto,
+                   $desc,
+                   $status,
+                   $cnpj
+               ));
+           
+       }
     }
 ?>
