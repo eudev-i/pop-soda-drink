@@ -23,7 +23,7 @@
         <script>
         $(document).ready(function(){
 
-          
+
           //SELECIONAR DADOS VIA COOKIE
           getAllData();
 
@@ -103,48 +103,48 @@
                         </div>
                         <!-- Email -->
                         <div class="texto_dados caixa_crescer">
-                            <p class="font-negrito font-texto">Email: </p><p class="font-texto"  id='email'>popssodadrink@hotmail.com</p>
+                            <p class="font-negrito font-texto">Email: </p><p class="font-texto"  id='email'></p>
                         </div>
                         <!-- Logradouro -->
                         <div class="texto_dados caixa_crescer">
-                            <p class="font-negrito font-texto">Logradouro: </p><p class="font-texto"  id='logradouro'>Rua Senai Jandira</p>
+                            <p class="font-negrito font-texto">Logradouro: </p><p class="font-texto"  id='logradouro'></p>
                         </div>
                         <!-- Bairro -->
                         <div class="texto_dados caixa_crescer">
-                            <p class="font-negrito font-texto">Bairro: </p><p class="font-texto"  id='bairro'>Jd. Senai Jandira </p>
+                            <p class="font-negrito font-texto">Bairro: </p><p class="font-texto"  id='bairro'> </p>
                         </div>
                     </div>
                     <!-- grupo form 2 -->
                     <div class="grupo_form caixa_crescer elemento_direita">
                         <!-- Nome fantasia -->
                         <div class="texto_dados caixa_crescer">
-                            <p class="font-negrito font-texto">Nome Fantasia: </p><p class="font-texto"  id='nom_fantasia'>POP'Soda Drink</p>
+                            <p class="font-negrito font-texto">Nome Fantasia: </p><p class="font-texto"  id='nom_fantasia'></p>
                         </div>
                         <!-- Telefone-->
                         <div class="texto_dados caixa_crescer">
-                            <p class="font-negrito font-texto">Telefone: </p><p class="font-texto"  id='tel'>(00) 0000-0000</p>
+                            <p class="font-negrito font-texto">Telefone: </p><p class="font-texto"  id='tel'></p>
                         </div>
                         <!-- Número e CEP-->
                         <div class="texto_dados caixa_crescer">
                             <!-- Número -->
                             <div class="caixa_num_cep elemento_esquerda caixa_crescer">
-                                <p class="font-negrito font-texto">Nº: </p><p class="font-texto"  id='num'>00000</p>
+                                <p class="font-negrito font-texto">Nº: </p><p class="font-texto"  id='num'></p>
                             </div>
                             <!-- CEP -->
                             <div class="caixa_num_cep elemento_direita caixa_crescer">
-                                <p class="font-negrito font-texto">CEP: </p><p class="font-texto"  id='cep'>0000000</p>
+                                <p class="font-negrito font-texto">CEP: </p><p class="font-texto"  id='cep'></p>
                             </div>
                         </div>
                         <!-- Estado-->
                         <div class="texto_dados caixa_crescer">
-                            <p class="font-negrito font-texto">Estado: </p><p class="font-texto"  id='uf'>São Paulo</p>
+                            <p class="font-negrito font-texto">Estado: </p><p class="font-texto"  id='uf'></p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Criar anúncios -->
                 <div class="caixa_criar_anuncios centralizar_caixa">
-                    <h1 class="font-titulo font-negrito identidade_pj_font">Deseja criar anúncio?</h1>
+                    <h1 class="font-titulo font-negrito identidade_pj_font"></h1>
                     <div class="font-texto botao_padrao_pj" id="Anuncio">
                       Criar anúncio
                     </div>
