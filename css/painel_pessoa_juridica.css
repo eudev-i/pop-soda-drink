@@ -154,6 +154,11 @@ h1{
     height: 230px;
 }
 
+#container_perfil{
+    width: inherit;
+    height: 230px;
+}
+
 .card_anuncio {
     width: 210px;
     height: 260px;
@@ -220,10 +225,11 @@ h1{
 /* ********* CAIXA ACESSO ********** */
 .caixa_acesso{
     width: 85%;
-    height: 330px;
-    margin-top: 20px;
-
+    height: auto;
+    min-height:410px;
+    overflow:hidden;
     border-bottom: 2px solid #ccc;
+    margin-top: 20px;
 }
 
 .caixa_acesso_grupo{

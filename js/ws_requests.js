@@ -128,19 +128,16 @@ function getPerfilData(){
         dataType: "json",
         data: {"cnpj":cnpjCookie},
         success: function(data){
-            
-            var html = '<div class="caixa_users_add">';
-            
-            
+            var html = '<div class="container_card_anuncio">';
+            //looping em todos os dados retorados via JSON
             for(var i = 0; i < data.length; i++){
-               console.log('entrou no for');
-               html+= '<p class="font-negrito font-texto">Users: </p><p class="font-texto nome_perfil" >'+data[i].usuario+'</p>';
-               html+= `<img class="elemento_direita img_perfil" src='http://${host}/pops/img/temp/${data[i].foto}' width="30" height="30" alt="ola" title="ola"></img>`;
-               html+= `<div class="edit">
-                            <img class="elemento_direita img_perfil edit"  src='http://${host}/cms/view/img/editar.png' width="30" height="30" alt="ola" title="ola">
-                        </img></div><br>`;
-           }
-           html+='</div>';
+                html+= `<a class="click_me" href="#" data-id="${data[i].id_perfil_juridico}" onclick="callModalPerfilWithData(this);$('#container').fadeIn(600);"><div class="card_anuncio">`;
+                html+= `<div class="card_img_anuncio"><img class="img_anuncio" src='http://${host}/cms/view/img/temp/${data[i].foto}'  alt="ads" title="ads"></img></div>`;
+                html+= `<div class="options">Responsável</div>`;
+                html+= `<div class="desc_anuncio">${data[i].responsavel}</div>`;
+                html+= `</div></a>`;
+            }
+        
            $("#container_perfil").html(html);
            //alert(html);
            
@@ -180,15 +177,9 @@ function getAdData(){
 }
 
 function callModalWithData(obj){
-    //console.log($(obj).data("id"));
+    
     var id = $(obj).data("id");
-
-    // sessionStorage.setItem("id_anuncio", id);
-
-    // console.log(sessionStorage.getItem("id_anuncio"));
-
-     //criando um cookie no js
-     document.cookie = "idAnuncio="+id; 
+    document.cookie = "idAnuncio="+id; 
 
     $.ajax({
       type: "GET",
@@ -201,7 +192,7 @@ function callModalWithData(obj){
         $("#form-anuncio").submit(function(){
             var btnValue = $("#btnok").val();
             if(btnValue=="Editar"){
-                console.log("teste");
+               
                 $.ajax({
                     type: "POST",
                     url: `http://${host}/pops/backend/services/PJService.php/?op=updateAnuncio`,
@@ -212,11 +203,54 @@ function callModalWithData(obj){
                     async: true,
                     dataType:"json",
                     success: function(data){
-                        //alert(perfilJuridico.foto);
+                        
                         var html = "<div>"+data.message+"</div>";
                         $("#msg_add").html(html);
                         $("#form-anuncio")[0].reset();
                         getAdData();
+                    },
+                    error: function(){
+                        alert('deu erro');
+                    }
+                });
+            }
+        });
+
+      }
+    });
+  }
+
+  function callModalPerfilWithData(obj){
+    
+    var id = $(obj).data("id");
+    document.cookie = "idPerfil="+id; 
+
+    $.ajax({
+      type: "GET",
+      url: 'modal_perfil_secundario.php',
+      success: function(dados){
+        $("#modal").html(dados);
+        selectPerfilById(id);
+       
+
+        $("#form-perfil").submit(function(){
+            var btnValue = $("#btn_add").val();
+            if(btnValue=="Editar"){
+               
+                $.ajax({
+                    type: "POST",
+                    url: `http://${host}/pops/backend/services/PJService.php/?op=updatePerfil`,
+                    data: new FormData($("#form-perfil")[0]),
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    async: true,
+                    dataType:"json",
+                    success: function(data){
+                        var html = "<div>"+data.message+"</div>";
+                        $("#msg_add").html(html);
+                        $("#form-perfil")[0].reset();
+                        getPerfilData();
                     },
                     error: function(){
                         alert('deu erro');
@@ -240,6 +274,31 @@ function callModalWithData(obj){
           $("#txtadescricao").val(data.descricao);
           $("#slt_status").val(data.status);
           $("#btnok").val("Editar");
+        },
+        error: function(xhr){
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+           
+        }
+    });
+  }
+
+  
+  function selectPerfilById(id){
+    $.ajax({
+        type: "POST",
+        url: `http://${host}/pops/backend/services/PJService.php/?op=perfil_by_id`,
+        dataType: 'json',
+        data: {"idPerfil":id},
+        success: function(data){
+          console.log(data);
+          $("#txt_responsavel").val(data.responsavel);
+          $("#txt_email").val(data.email);
+          $("#txt_tel").val(data.telefone);
+          $("#txt_user").val(data.usuario);
+          $("#txt_cel").val(data.celular);
+          $("#txt_password").val(data.senha);
+          $("#btn_add").val("Editar");
         },
         error: function(xhr){
             var errorMessage = xhr.status + ': ' + xhr.statusText

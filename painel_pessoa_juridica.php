@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>POP'S - Painel Pessoa Jurídica</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/rand.css">
+        
         <link rel="stylesheet" type="text/css" href="css/arielle.css">
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/painel_pessoa_juridica.css">
@@ -18,10 +18,12 @@
         </script>
         <!-- CHAMANDO O ARQUIVO DE REQUESTS EM JQUERY -->
         <script src="js/ws_requests.js">
-<<<<<<< HEAD
+
         </script>
         <script>
         $(document).ready(function(){
+
+          
           //SELECIONAR DADOS VIA COOKIE
           getAllData();
 
@@ -91,7 +93,7 @@
                     <p class="centralizar_texto font-texto" id='responsavel'></p>
                     <p class="centralizar_texto font-texto" id='user'></p>
                 </div>
-                <a class="click_me" href="#">Clique aqui</a>
+                
                 <!-- Caixa dos dados -->
                 <div class="caixa_geral_dados caixa_crescer centralizar_caixa">
                     <div class="grupo_form caixa_crescer elemento_esquerda">
@@ -147,35 +149,23 @@
                       Criar anúncio
                     </div>
                     <div id="container_card_anuncio"></div>
-                    <!-- <div class="card_anuncio">
-                        <img class="img_anuncio">
-                        <div class="desc_anuncio"></div>
-                        <div class="options"></div>
-                    </div> -->
+                  
                 </div>
 
                 <!-- Acesso -->
                 <div class="caixa_acesso centralizar_caixa">
-                    <!-- caixa a esquerda com float left -->
-                    <div class="caixa_acesso_grupo elemento_esquerda" >
+                    
                         <!-- caixa que contem um h1 e o botao de add novo acesso -->
                         <div class="caixa_botao_acesso">
                             <h1 class="font-titulo font-negrito identidade_pj_font">Acesso</h1>
                             <input class="font-texto botao_padrao_pj" type="button" value="Adicionar novo acesso" name="btnNovoAcesso" id="btnNovoAcesso">
                         </div>
                         <!-- caixa dos acessos adicionados -->
-                        <div class="caixa_acessos_adicionados">
+                        
                             <h1 class="font-titulo font-negrito">Acessos adicionados:</h1>
                             <div id="container_perfil"></div>
-                        </div>
-
+                        
                     </div>
-                    <div class="caixa_acesso_grupo elemento_direita">
-                        <div class="aviso_pj elemento_direita">
-                            <p class="font-texto">Você pode adicionar até 3 acessos para efetuar a compra</p>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Meus Pedidos -->
                 <div class="caixa_meus_pedidos centralizar_caixa caixa_crescer">

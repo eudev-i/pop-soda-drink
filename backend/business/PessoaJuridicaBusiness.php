@@ -95,6 +95,52 @@ class PessoaJuridicaBusiness{
         return $result;
     }
 
+    public function selectPerfilById($id){
+        
+        $sql = "SELECT * FROM tbl_perfil_juridico WHERE id_perfil_juridico = $id";
+
+        //Recebendo a função que faz a conexão com BD
+        $con = $this->conexao->connectDatabase();
+        // Executa o script no BD
+        if (!$con->query($sql))
+            echo 'Erro no script de select';
+
+        $select = $con->query($sql);
+
+        if($rsPerfil = $select->fetch(PDO::FETCH_ASSOC)){
+           
+            //criando vetor e atribuindo resultados no banco dentro dele
+             //criando vetor e atribuindo resultados no banco dentro dele
+             $result = array(
+                'success' => true,
+                'cnpj' => $rsPerfil['cnpj'],
+                'status' => $rsPerfil['status'],
+                'foto' => $rsPerfil['foto'],
+                'email' => $rsPerfil['email'],
+                'responsavel' => $rsPerfil['responsavel'],
+                'telefone' => $rsPerfil['telefone'],
+                'celular' => $rsPerfil['celular'],
+                'usuario' => $rsPerfil['usuario'],
+                'senha' => $rsPerfil['senha'],
+              
+            );
+
+        }
+
+        else {
+            $result = array(
+                'success' => false,
+                'message' => 'Não foi possível resgatar os dados'
+            );
+        }
+        // Fechando a conexão com BD
+        $this->conexao->closeDatabase();
+       
+        //retorna o objeto
+        return $result;
+    }
+
+
     public function selectByCnpj($cnpj){
         
         $sql = "SELECT pj.*, en.* FROM tbl_p_juridica_endereco pj_end
@@ -168,6 +214,7 @@ class PessoaJuridicaBusiness{
             //criando vetor e atribuindo resultados no banco dentro dele
             $result[$cont] = array(
                 'success' => true,
+                'id_perfil_juridico' => $rsPerfil['id_perfil_juridico'],
                 'cnpj' => $rsPerfil['cnpj'],
                 'foto' => $rsPerfil['foto'],
                 'email' => $rsPerfil['email'],
@@ -326,7 +373,7 @@ class PessoaJuridicaBusiness{
             if (!$con->query($sql))
                 $result = array(
                     'success' => false,
-                    'message' => 'Erro em inserir novo perfil',
+                    'message' => 'Erro em inserir novo anúncio',
                     
                 );
             else
@@ -343,15 +390,64 @@ class PessoaJuridicaBusiness{
     }
 
     public function updateAd($foto=null, $desc,$status,$id){
-        $sql = "UPDATE tbl_anuncio SET descricao = '$desc', status = $status, img_anuncio = '$foto' WHERE id_anuncio = $id";
 
+        if($foto!=null){
+            $sql = "UPDATE tbl_anuncio SET descricao = '$desc', status = $status, img_anuncio = '$foto' 
+            WHERE id_anuncio = $id";
+        } else {
+            $sql = "UPDATE tbl_anuncio SET descricao = '$desc', status = $status 
+            WHERE id_anuncio = $id";
+        }
         //Recebendo a função que faz a conexão com BD
             $con = $this->conexao->connectDatabase();
             // Executa o script no BD
             if (!$con->query($sql))
                 $result = array(
                     'success' => false,
-                    'message' => 'Erro em inserir novo perfil',
+                    'message' => 'Erro em atualizar anuncio',
+                    
+                );
+            else
+                $result = array(
+                    'success' => true,
+                    'message' => 'Atualizado com Sucesso',
+                
+                );
+            // Fechando a conexão com BD
+            $this->conexao->closeDatabase();
+            
+            //retorna o objeto
+            return $result;
+    }
+
+    public function updatePerfil( $responsavel,
+    $email,
+    $cel,
+    $tel,
+    $user,
+    $senha,
+    $status,
+    $foto=null,
+   $id){
+
+        if($foto!=null){
+            $sql = "UPDATE tbl_perfil_juridico SET responsavel = '$responsavel', email = '$email',
+            celular = '$cel',  telefone = '$tel', usuario = '$user', senha = '$senha',
+            status = $status, foto = '$foto' 
+            WHERE id_perfil_juridico = $id";
+        } else {
+            $sql = "UPDATE tbl_perfil_juridico SET responsavel = '$responsavel', email = '$email',
+            celular = '$cel',  telefone = '$tel', usuario = '$user', senha = '$senha',
+            status = $status
+            WHERE id_perfil_juridico = $id";
+        }
+        //Recebendo a função que faz a conexão com BD
+            $con = $this->conexao->connectDatabase();
+            // Executa o script no BD
+            if (!$con->query($sql))
+                $result = array(
+                    'success' => false,
+                    'message' => 'Erro em atualizar perfil',
                     
                 );
             else

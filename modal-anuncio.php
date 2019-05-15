@@ -1,7 +1,3 @@
-<?php 
-  $id = $_GET['id'];
-  echo($id)
-?>
 <!DOCTYPE html>
 <html lang="pt">
   <head>

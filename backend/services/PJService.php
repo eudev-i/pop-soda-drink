@@ -34,7 +34,7 @@
         if($op=='ads'){
             $cnpj = $_COOKIE['cnpj']; 
             //callback
-            //var_dump($pjBusiness->selectAnuncios($cnpj));
+           
             echo json_encode($pjBusiness->selectAnuncios($cnpj));
         }
 
@@ -126,5 +126,59 @@
         echo json_encode($pjBusiness->selectAdById($id));
        
    }
+
+   if($op=='updatePerfil'){
+    //resgatando valores
+    $responsavel = $_POST['txt_responsavel'];
+    $foto = upload($_FILES['ipt_foto']);
+    $email = $_POST['txt_email'];
+    $cel = $_POST['txt_cel'];
+    $tel = $_POST['txt_tel'];
+    $user = $_POST['txt_user'];
+    $senha = $_POST['txt_senha'];
+    $status = 0;
+    $id = $_COOKIE['idPerfil'];
+
+   
+
+    if($foto != ""){
+        //callback
+        echo json_encode($pjBusiness->updatePerfil(
+            $responsavel,
+                    $email,
+                    $cel,
+                    $tel,
+                    $user,
+                    $senha,
+                    $status,
+                    $foto,
+                   $id
+        ));
+    } else {
+         //callback
+         echo json_encode($pjBusiness->updatePerfil(
+            $responsavel,
+                    $email,
+                    $cel,
+                    $tel,
+                    $user,
+                    $senha,
+                    $status,
+                    null,
+                   $id
+        ));
     }
+
+}
+
+if($op=='perfil_by_id'){
+    //resgatando valores
+    $id = $_POST['idPerfil'];
+
+    //callback
+    echo json_encode($pjBusiness->selectPerfilById($id));
+
+    }
+}
+    
 ?>
