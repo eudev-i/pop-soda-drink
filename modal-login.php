@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Login</title>
     <link rel="stylesheet" href="css/arielle.css">
+    <script src="js/ws_requests.js"></script>
   </head>
   <body>
     <script>
@@ -31,18 +32,18 @@
           <div class="modal-form-login">
             <form class="form-login"  action="index.html" method="post">
               <p class="modal-title-campos-login"> Usuario:
-                <input type="text" name="txtuser">
+                <input type="text" name="txtuser" id="txtuser"> 
               </p>
 
               <p class="modal-title-campos-login"> Senha:
-                <input type="password" name="txtpassword">
+                <input type="password" name="txtpassword" id="txtpassword">
               </p>
-              <input type="button" name="btnlogar" value="Login">
+              <input type="button" name="btnlogar" id="btnlogar" value="Login">
             </form>
           </div>
         </div>
       </div>
-
+      <div id="msg_login"></div>
       <div class="modal-footer-login">
         <a href="cadastro.php" id="escolha">Paticipe da rede Pop's</a>
       </div>

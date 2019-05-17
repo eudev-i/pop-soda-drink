@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <!-- Anuncios -->
+        <!-- Anuncio -->
         <section class="caixa_geral_anuncios">
 
             <div class="caixa_anuncios sombra">

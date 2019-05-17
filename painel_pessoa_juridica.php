@@ -8,34 +8,18 @@
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/painel_pessoa_juridica.css">
         <link rel="stylesheet" type="text/css" href="css/titulo_pagina.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
         <!-- CHAMANDO O JQUERY -->
         <script src="js/jquery.js">
         </script>
         <!-- CHAMANDO O ARQUIVO DE EVENTOS EM JQUERY -->
         <script src="js/event.js">
         </script>
-
-        <script>
-        $(document).ready(function(){
-          //CHAMAR MODAL
-          $('#Anuncio').click(function(){
-            anuncio();
-            $('#container').fadeIn(600);
-
-          });
-
-          function anuncio(){
-            $.ajax({
-              type: "GET",
-              url: "modal-anuncio.php",
-              success: function(dados){
-                $("#modal").html(dados)
-              }
-            });
-          }
-        });
+        <!-- CHAMANDO O ARQUIVO DE REQUESTS EM JQUERY -->
+        <script src="js/ws_requests.js">
         </script>
+        
+        
     </head>
 
     <body>
@@ -58,58 +42,58 @@
                 <!-- Caixa identidade -->
                 <div class="caixa_identidade_pj centralizar_caixa">
                     <div class="caixa_imagem_pj centralizar_caixa">
-                        <img src="img/atacadao.jpg" width="200" height="200" alt="ola" title="ola">
+                        <img id='foto' width="200" height="200" alt="ola" title="ola">
                     </div>
                     <!-- Razão Social -->
-                    <p class="centralizar_texto font-titulo font-negrito identidade_pj_font">Atacadão</p>
-                    <p class="centralizar_texto font-texto">Mauricio Ribeiro</p>
-                    <p class="centralizar_texto font-texto">@atacadao</p>
+                    <p class="centralizar_texto font-titulo font-negrito identidade_pj_font" id='razao_social'></p>
+                    <p class="centralizar_texto font-texto" id='responsavel'></p>
+                    <p class="centralizar_texto font-texto" id='user'></p>
                 </div>
-
+                <a class="click_me" href="#">Clique aqui</a>
                 <!-- Caixa dos dados -->
                 <div class="caixa_geral_dados caixa_crescer centralizar_caixa">
                     <div class="grupo_form caixa_crescer elemento_esquerda">
                         <!-- CNPJ -->
                         <div class="texto_dados">
-                            <p class="font-negrito font-texto">CNPJ: </p><p class="font-texto">000000000000000</p>
+                            <p class="font-negrito font-texto">CNPJ: </p><p class="font-texto" id='cnpj'></p>
                         </div>
                         <!-- Email -->
                         <div class="texto_dados caixa_crescer">
-                            <p class="font-negrito font-texto">Email: </p><p class="font-texto">popssodadrink@hotmail.com</p>
+                            <p class="font-negrito font-texto">Email: </p><p class="font-texto"  id='email'>popssodadrink@hotmail.com</p>
                         </div>
                         <!-- Logradouro -->
                         <div class="texto_dados caixa_crescer">
-                            <p class="font-negrito font-texto">Logradouro: </p><p class="font-texto">Rua Senai Jandira</p>
+                            <p class="font-negrito font-texto">Logradouro: </p><p class="font-texto"  id='logradouro'>Rua Senai Jandira</p>
                         </div>
                         <!-- Bairro -->
                         <div class="texto_dados caixa_crescer">
-                            <p class="font-negrito font-texto">Bairro: </p><p class="font-texto">Jd. Senai Jandira </p>
+                            <p class="font-negrito font-texto">Bairro: </p><p class="font-texto"  id='bairro'>Jd. Senai Jandira </p>
                         </div>
                     </div>
                     <!-- grupo form 2 -->
                     <div class="grupo_form caixa_crescer elemento_direita">
                         <!-- Nome fantasia -->
                         <div class="texto_dados caixa_crescer">
-                            <p class="font-negrito font-texto">Nome Fantasia: </p><p class="font-texto">POP'Soda Drink</p>
+                            <p class="font-negrito font-texto">Nome Fantasia: </p><p class="font-texto"  id='nom_fantasia'>POP'Soda Drink</p>
                         </div>
                         <!-- Telefone-->
                         <div class="texto_dados caixa_crescer">
-                            <p class="font-negrito font-texto">Telefone: </p><p class="font-texto">(00) 0000-0000</p>
+                            <p class="font-negrito font-texto">Telefone: </p><p class="font-texto"  id='tel'>(00) 0000-0000</p>
                         </div>
                         <!-- Número e CEP-->
                         <div class="texto_dados caixa_crescer">
                             <!-- Número -->
                             <div class="caixa_num_cep elemento_esquerda caixa_crescer">
-                                <p class="font-negrito font-texto">Nº: </p><p class="font-texto">00000</p>
+                                <p class="font-negrito font-texto">Nº: </p><p class="font-texto"  id='num'>00000</p>
                             </div>
                             <!-- CEP -->
                             <div class="caixa_num_cep elemento_direita caixa_crescer">
-                                <p class="font-negrito font-texto">CEP: </p><p class="font-texto">0000000</p>
+                                <p class="font-negrito font-texto">CEP: </p><p class="font-texto"  id='cep'>0000000</p>
                             </div>
                         </div>
                         <!-- Estado-->
                         <div class="texto_dados caixa_crescer">
-                            <p class="font-negrito font-texto">Estado: </p><p class="font-texto">São Paulo</p>
+                            <p class="font-negrito font-texto">Estado: </p><p class="font-texto"  id='uf'>São Paulo</p>
                         </div>
                     </div>
                 </div>
@@ -120,12 +104,18 @@
                     <div class="font-texto botao_padrao_pj" id="Anuncio">
                       Criar anúncio
                     </div>
+                    <div id="container_card_anuncio"></div>
+                    <!-- <div class="card_anuncio">
+                        <img class="img_anuncio">
+                        <div class="desc_anuncio"></div>
+                        <div class="options"></div>
+                    </div> -->
                 </div>
 
                 <!-- Acesso -->
                 <div class="caixa_acesso centralizar_caixa">
                     <!-- caixa a esquerda com float left -->
-                    <div class="caixa_acesso_grupo elemento_esquerda">
+                    <div class="caixa_acesso_grupo elemento_esquerda" >
                         <!-- caixa que contem um h1 e o botao de add novo acesso -->
                         <div class="caixa_botao_acesso">
                             <h1 class="font-titulo font-negrito identidade_pj_font">Acesso</h1>
@@ -134,19 +124,7 @@
                         <!-- caixa dos acessos adicionados -->
                         <div class="caixa_acessos_adicionados">
                             <h1 class="font-titulo font-negrito">Acessos adicionados:</h1>
-                            <div class="caixa_users_add">
-                                <p class="font-negrito font-texto">Users: </p><p class="font-texto">popsoda099</p>
-                                <img class="elemento_direita" src="img/foto.jpg" width="38" height="38" alt="ola" title="ola">
-                            </div>
-                            <!-- caixa dos users: nome e img -->
-                            <div class="caixa_users_add">
-                                <p class="font-negrito font-texto">Users: </p><p class="font-texto">popsoda099</p>
-                                <img class="elemento_direita" src="img/foto.jpg" width="38" height="38" alt="ola" title="ola">
-                            </div>
-                            <div class="caixa_users_add">
-                                <p class="font-negrito font-texto">Users: </p><p class="font-texto">popsoda099</p>
-                                <img class="elemento_direita" src="img/foto.jpg" width="38" height="38" alt="ola" title="ola">
-                            </div>
+                            <div id="container_perfil"></div>
                         </div>
 
                     </div>
@@ -198,5 +176,53 @@
         </div>
 
         <footer> <?php require_once('footer.html')?> </footer>
+      
+        <script>
+                $(document).ready(function(){
+                  //SELECIONAR DADOS VIA COOKIE
+                  getAllData();
+        
+                  //SELECIONAR DADOS DA LISTA DE PERFIL
+                  getPerfilData();
+        
+                  //SELECIONAR DADOS DE ANÚNCIOS
+                  getAdData();
+        
+                  //CHAMAR MODAL
+                  $('#Anuncio').click(function(){
+                    callModal('modal-anuncio.php');
+                    $('#container').fadeIn(600);
+        
+                  });
+        
+                  //CHAMAR MODAL
+                 $('.edit').on("click", function(){
+                    callModal('modal-anuncio.php');
+                    $('#container').fadeIn(600);
+        
+                 });
+        
+               
+                  
+                  
+                  //CHAMAR MODAL
+                  $('#btnNovoAcesso').click(function(){
+                    callModal('modal_perfil_secundario.php');
+                    $('#container').fadeIn(600);
+        
+                  });
+                });
+                function callModal(_url){
+                    $.ajax({
+                      type: "GET",
+                      url: _url,
+                      success: function(dados){
+                        $("#modal").html(dados)
+                      }
+                    });
+                  }
+                
+                  
+                </script>
     </body>
 </html>

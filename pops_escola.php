@@ -13,13 +13,7 @@
   <script src="js/event.js"></script>
 </head>
 <body>
-    <?php 
-        session_start();
-        require_once('../cms/model/DAO/Conexao.php');   
-        $conex = new Conexao();
-        $con = $conex->connectDatabase();
 
-    ?>
   <header><?php require_once 'header.php';?></header>
 
     <!-- Título da página -->
@@ -30,17 +24,14 @@
     <!-- CONTEÚDO CHAMATIVO -->
     <div class="caixa_pops_escola div_centro">
         <div class="caixa_texto_imagem div_centro">
-        <?php		
-            $sql = "SELECT * FROM tbl_pops_nas_escolas";
-            $stm = $con->prepare($sql);
-            $success = $stm->execute();
-            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
-        ?>
+
             <p id="texto_formatacao">
-                <?php echo (utf8_decode($result['descricao'])) ?>
+                A POP'S faz evento nas escolas, com a finalidade de apresentar nossos produtos e a nossa visão 
+                para as crianças, jovens e adolescentes. Se você é diretor ou responsável por alguma instituição 
+                de educação, preencha o formulário abaixo e aguarde o contato da POP'S.
             </p>
-            <img class="sombra_imagens img_chamativa" src="..cms/view/img/temp/<?php echo($result['img_1']) ?>" width="310" height="310" alt="Imagem não encontrada" title="ola">
-        <?php } ?>
+            <img class="sombra_imagens img_chamativa" src="img/escolas4.jpg" width="310" height="310" alt="Imagem não encontrada" title="ola">
+        
         </div>
     </div>
 
@@ -119,24 +110,18 @@
     <!-- IMAGENS -->
     <div id="caixa_imagens_pops">
         <div class="caixa_central_imagens_pops div_centro">
-        <?php		
-            $sql = "SELECT * FROM tbl_pops_nas_escolas LIMIT 3";
-            $stm = $con->prepare($sql);
-            $success = $stm->execute();
-            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
-        ?>
             <div class="imagens sombra_imagens">
-                <img src="cms/view/img/temp/<?php utf8_decode($result['img_2'])  ?>" width="300" height="300" title="ola" alt="Imagem não encontrada">
+                <img src="img/escolas.jpg" width="300" height="300" title="ola" alt="Imagem não encontrada">
             </div>
 
             <div class="imagens sombra_imagens">
-                <img src="cms/<?php utf8_decode($result['img_3'])  ?>" width="300" height="300" title="ola" alt="Imagem não encontrada">
+                <img src="img/escolas2.jpg" width="300" height="300" title="ola" alt="Imagem não encontrada">
             </div>
 
             <div class="imagens sombra_imagens">
-                <img src="cms/<?php utf8_decode($result['img_4'])  ?>" width="300" height="300" title="ola" alt="Imagem não encontrada">
+                <img src="img/escolas3.jpg" width="300" height="300" title="ola" alt="Imagem não encontrada">
             </div>
-        <?php } ?>
+        
         </div>
     </div>
 

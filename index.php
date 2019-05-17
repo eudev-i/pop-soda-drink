@@ -14,9 +14,21 @@
    <script src="js/effects.js"></script>
 </head>
 <body>
-      <?php 
+      <?php        
+  // Variáveis que recebem a URL e o caminho local
+        $path_url = "http://".$_SERVER['HTTP_HOST']."/Tcc";
+        $path_local = $_SERVER['DOCUMENT_ROOT']."/Tcc";
+        
         session_start();
-        require_once('../cms/model/DAO/Conexao.php');   
+        // Criando variáveis de sessões que recebem esses valores
+        $_SESSION['path_url'] = $path_url;
+        $_SESSION['path_local'] = $path_local;
+        
+        require_once('../cms/model/DAO/conexao.php');   
+
+        session_start();
+       
+
         require_once('../cms/model/DAO/promocaoDAO.php');
         $conex = new Conexao();
         $con = $conex->connectDatabase();
@@ -52,7 +64,9 @@
             <div id="box_products" class="section-six-div-products fadeInTop">
               <div class="section-six-products">
                 <div class="section-six-image-products centralizar_elemento">
-                  <img src="img/7up1.jpg" alt="Produto">
+
+                  <img src="../cms/view/img/temp/<?php echo ($result['imagem']) ?>" alt="Produto">
+
                 </div>
                 <div class="section-six-text-products">
                   <h2><?php echo (utf8_decode($result['nome'])) ?></h2>
@@ -241,6 +255,7 @@
                 <?php echo ($result['descricao']) ?>
               </div>
             </div>
+			
             <div class="section-eight-resposta">
               <div class="caixa_input">
                 <label for="txt_resposta">Resposta</label>
@@ -250,10 +265,13 @@
                 <button type="button" name="button">Enviar</button>
               </div>
             </div>
+
+			<?php } ?>
           </div>
         </div>
 
-        <?php } ?>
+        
+
 
     </section>
     <footer>
