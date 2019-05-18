@@ -26,9 +26,6 @@
         
         require_once('../cms/model/DAO/conexao.php');   
 
-        session_start();
-       
-
         require_once('../cms/model/DAO/promocaoDAO.php');
         $conex = new Conexao();
         $con = $conex->connectDatabase();

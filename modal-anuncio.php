@@ -1,7 +1,3 @@
-<?php 
-  $id = $_GET['id'];
-  echo($id)
-?>
 <!DOCTYPE html>
 <html lang="pt">
   <head>
@@ -14,12 +10,10 @@
     <script>
     $(document).ready(function(){
       //function para fechar a modal
-
       $('#fechar').click(function(){
         $('#container').fadeOut(400);
       });
-
-      getAllData();
+      getAllDataPJ();
     });
     </script>
 
@@ -55,8 +49,8 @@
                     <option value="0">Desativado</option>
                 </select>
               </p>
-
-              <p class="modal-title-campos-anuncio" > Logradouro: <br>
+             
+             <p class="modal-title-campos-anuncio" > Logradouro: <br>
                 <input type="text" id="txt_logradouro" name="txt_logradouro" disabled>
               </p>
 

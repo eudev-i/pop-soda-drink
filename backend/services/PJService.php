@@ -1,6 +1,5 @@
 <?php 
     @session_start();
-
     $path_url = "http://".$_SERVER['HTTP_HOST']."/Tcc";
     $path_local = $_SERVER['DOCUMENT_ROOT']."/Tcc";
    
@@ -8,36 +7,30 @@
     require_once "../business/PessoaJuridicaBusiness.php";
     require_once "$path_local/cms/upload.php";
     $pjBusiness = new PessoaJuridicaBusiness();
-
     if(isset($_GET['op'])){
         $op = $_GET['op'];
-
         if($op=='login'){
             $username = $_POST['user'];
             $password = $_POST['senha'];
             //callback
             echo json_encode($pjBusiness->login($username, $password));
         }
-
         if($op=='dashboard'){
             $cnpj = $_COOKIE['cnpj']; 
             //callback
             echo json_encode($pjBusiness->selectByCnpj($cnpj));
         }
-
         if($op=='perfis'){
             $cnpj = $_COOKIE['cnpj']; 
             //callback
             echo json_encode($pjBusiness->selectPerfis($cnpj));
         }
-
         if($op=='ads'){
             $cnpj = $_COOKIE['cnpj']; 
             //callback
-            //var_dump($pjBusiness->selectAnuncios($cnpj));
+           
             echo json_encode($pjBusiness->selectAnuncios($cnpj));
         }
-
         if($op=='addProfile'){
             
              $responsavel = $_POST['txt_responsavel'];
@@ -71,7 +64,6 @@
                 echo json_encode(array("success"=>false, "message"=>"Limite de perfis já alcançado!"));
             }
         }
-
         if($op=='addAnuncio'){
             //resgatando valores
             $foto = upload($_FILES['flt_anuncio']);
@@ -88,5 +80,87 @@
                ));
            
        }
+       if($op=='updateAnuncio'){
+            //resgatando valores
+            $foto = upload($_FILES['flt_anuncio']);
+            $desc = $_POST['txtadescricao'];
+            $status = $_POST['slt_status'];
+            $idAnuncio = $_COOKIE['idAnuncio'];
+           
+        
+            if($foto != ""){
+                //callback
+                echo json_encode($pjBusiness->updateAd(
+                    $foto,
+                    $desc,
+                    $status,
+                    $idAnuncio
+                ));
+            } else {
+                 //callback
+                 echo json_encode($pjBusiness->updateAd(
+                    null,
+                    $desc,
+                    $status,
+                    $idAnuncio
+                ));
+            }
+       
+   }
+       if($op=='ad_by_id'){
+        //resgatando valores
+        $id = $_POST['idAd'];
+       
+        //callback
+        echo json_encode($pjBusiness->selectAdById($id));
+       
+   }
+   if($op=='updatePerfil'){
+    //resgatando valores
+    $responsavel = $_POST['txt_responsavel'];
+    $foto = upload($_FILES['ipt_foto']);
+    $email = $_POST['txt_email'];
+    $cel = $_POST['txt_cel'];
+    $tel = $_POST['txt_tel'];
+    $user = $_POST['txt_user'];
+    $senha = $_POST['txt_senha'];
+    $status = 0;
+    $id = $_COOKIE['idPerfil'];
+   
+    if($foto != ""){
+        //callback
+        echo json_encode($pjBusiness->updatePerfil(
+            $responsavel,
+                    $email,
+                    $cel,
+                    $tel,
+                    $user,
+                    $senha,
+                    $status,
+                    $foto,
+                   $id
+        ));
+    } else {
+         //callback
+         echo json_encode($pjBusiness->updatePerfil(
+            $responsavel,
+                    $email,
+                    $cel,
+                    $tel,
+                    $user,
+                    $senha,
+                    $status,
+                    null,
+                   $id
+        ));
     }
+}
+if($op=='perfil_by_id'){
+    //resgatando valores
+    $id = $_POST['idPerfil'];
+    //callback
+    echo json_encode($pjBusiness->selectPerfilById($id));
+    }
+}
+    
 ?>
