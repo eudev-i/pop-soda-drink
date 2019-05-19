@@ -14,21 +14,22 @@ $("#btnlogar").click(function(){
             if(data.success == true){
                 //redireciona a url p/ dashboard da pj
                 var url = `http://${host}/pops/painel_pessoa_fisica.php`;  
-
                 //criando um cookie no js
                 document.cookie = "id_p_fisica="+data.id_p_fisica;  
                 $(location).attr('href',url);
             
             } else {
-                if(!loginPJ()){
-                    html = "<div class='msg_error'>"+data.message+"</div>";
-                    $("#msg_login").html(html);
-                }
+                loginPJ()
             }
-           
         }
     });
 });
+
+function logout(){
+    document.cookie = "cnpj="+null;  
+    var url = `http://${host}/pops/index.php`;
+    $(location).attr('href',url);
+}
 
 //function que faz o login p/ Pessoa Juridica
 function loginPJ(){
@@ -38,8 +39,6 @@ function loginPJ(){
         dataType: "json",
         data: {"user": $("#txtuser").val(), "senha": $("#txtpassword").val()},
         success: function(data){
-            //console.log(data);
-            var html = '';
             if(data.success == true){
                 //redireciona a url p/ dashboard da pj
                 var url = `http://${host}/pops/painel_pessoa_juridica.php`;  
@@ -49,7 +48,9 @@ function loginPJ(){
                 $(location).attr('href',url);
             
             } else {
-                return false;
+                html = "<div>"+data.message+"</div>";
+                $("#msg_login").fadeToggle(350);
+                $("#msg_login").html(html);
             }
             
         }

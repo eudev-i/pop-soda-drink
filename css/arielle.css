@@ -90,6 +90,19 @@ body{
 
 }
 
+#msg_login{
+  width: 280px;
+  height: 20px;
+  padding-top: 5px;
+  color: #fff;
+  font-family: Gadugi;
+  text-align: center;
+  background-color: #f00;
+  display: none;
+}
+
+
+
 .modal-header-login{
   width:90%;
   height: 35px;
@@ -128,7 +141,7 @@ a.modal-fechar{
 
 .modal-body-login{
   width: 328px;
-  height:360px;
+  height:310px;
   background-color: white;
 }
 
@@ -735,11 +748,12 @@ a.modal-fechar{
 
 .modal_anuncio{
   width: 390px;
-  height: 560px;
+  height: 670px;
   background-color: white;
   margin-right: auto;
   margin-left: auto;
   margin-top: 10px;
+  font-family: Helvetica;
 }
 
 .modal-form-anuncio{
@@ -753,7 +767,7 @@ a.modal-fechar{
 
 .form-anuncio input{
   width: 288px;
-  height: 25px;
+  height: 20px;
   padding: 0.2em;
   border: 1px solid #CCC;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
@@ -772,14 +786,14 @@ a.modal-fechar{
 }
 
 
-.form-anuncio input[type="button"]{
+.form-anuncio input[type="submit"]{
     width: 288px;
     height: 40px;
     background-color: #416baf;
    color: #FFFFFF;
    display: block;
    margin: 0 auto;
-   padding: 15px 50px;
+   padding: 9px 50px;
    margin-top: 5px;
    border-radius: 4px;
    font-family: Helvetica;
@@ -789,6 +803,47 @@ a.modal-fechar{
     background-color: #15233a;
     color: #FFFFFF;
 }
+
+/*Css modal perfil juridico*/
+.form-perfil input{
+  width: 288px;
+  height: 20px;
+  padding: 0.2em;
+  border: 1px solid #CCC;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  display: block;
+  margin-bottom: 13px;
+}
+
+.select-perfil{
+  width: 288px;
+  height: 30px;
+  padding: 0.2em;
+  border: 1px solid #CCC;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  display: block;
+
+}
+
+
+.form-perfil input[type="submit"]{
+    width: 288px;
+    height: 40px;
+    background-color: #416baf;
+   color: #FFFFFF;
+   display: block;
+   margin: 0 auto;
+   padding: 9px 50px;
+   margin-top: 5px;
+   border-radius: 4px;
+   font-family: Helvetica;
+   font-size: 17px;
+}
+.form-perfil input[type="button"]:hover{
+    background-color: #15233a;
+    color: #FFFFFF;
+}
+
 
 p.modal-title-campos-anuncio{
   font-weight: lighter;
